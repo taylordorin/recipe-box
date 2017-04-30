@@ -13,8 +13,7 @@ class App extends Component {
       listedCategories: ['Breakfast', 'Lunch', 'Beverages', 'Appetizers', 'Soups', 'Salads',
       'Main dishes: Beef', 'Main dishes: Poultry', 'Main dishes: Pork', 'Main dishes: Seafood',
       'Main dishes: Vegetarian', 'Side dishes: Vegetables', 'Side dishes: Other', 'Desserts',
-      'Canning / Freezing', 'Breads', 'Holidays', 'Entertaining'],
-      
+      'Canning / Freezing', 'Breads', 'Holidays', 'Entertaining']
     }
     this.getRandomRecipe = this.getRandomRecipe.bind(this)
     this.handleNameChange = this.handleNameChange.bind(this)
