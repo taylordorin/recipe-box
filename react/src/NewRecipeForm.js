@@ -1,10 +1,15 @@
 import React from 'react';
 
 const NewRecipeForm = props => {
-  return(
-    <form onSubmit={props.handleSubmit}>
-      Recipe: <input type='text' value={props.name} onChange={props.handleNameChange}/>
-    </form>
+  return (
+    <label>{props.label}
+      <input
+        name={props.name}
+        onChange={props.handlerFunction}
+        type='text'
+        value={props.content}
+      />
+    </label>
   )
 }
 
