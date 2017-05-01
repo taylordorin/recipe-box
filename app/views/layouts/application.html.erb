@@ -12,6 +12,30 @@
   </head>
 
   <body>
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">Recipe Box</li>
+            <% if user_signed_in? %>
+              <li>Logged in as <strong><%= current_user.first_name %></strong>.</li>
+            <% end %>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Edit profile', edit_user_registration_path %> </li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete%> </li>
+            <li><%= link_to 'Home', root_path %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to 'Home', root_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
     <div class="row column">
       <%= yield %>
     </div>
