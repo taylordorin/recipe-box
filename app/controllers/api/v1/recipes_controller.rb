@@ -2,6 +2,14 @@ class Api::V1::RecipesController < ApplicationController
   skip_before_filter :verify_authenticity_token
   def index
     recipes_ids = Recipe.all.pluck(:id)
+    # recipes = []
+    # Recipe.all.each do |r|
+    #   recipe = {}
+    #   recipe['ingrediants'] = r.ingrediants
+    #   recipe['name'] = r.name
+    #   recipes << recipe
+    # end
+
     render json: recipes_ids
   end
 
@@ -15,11 +23,11 @@ class Api::V1::RecipesController < ApplicationController
     parsed = JSON.parse(body)
     recipe = Recipe.new(parsed)
     recipe.user = current_user
-    binding.pry
+    # binding.pry
     if recipe.save
       render json: { message: "it worked" }
     else
       render json: { message: recipe.errors.full_messages }
-    end    
+    end
   end
 end
