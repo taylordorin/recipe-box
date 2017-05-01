@@ -23,14 +23,17 @@ class Api::V1::RecipesController < ApplicationController
     parsed = JSON.parse(body)
     # binding.pry
     recipe = Recipe.new(parsed["recipe"])
-    binding.pry
+    # binding.pry
     ingredient = Ingredient.new(parsed["ingredient"])
-    binding.pry
+    # binding.pry
+    instruction = Instruction.new(parsed["instruction"])
+    # binding.pry
     recipe.user = current_user
     ingredient.recipe = recipe
+    instruction.recipe = recipe
 
-    if recipe.save && ingredient.save
-        binding.pry
+    if recipe.save && ingredient.save && instruction.save
+        # binding.pry
         render json: { message: "it worked" }
     else
       render json: { message: recipe.errors.full_messages }

@@ -21,11 +21,14 @@ class App extends Component {
 			skill_level: '',
 			skillCategories: ['Beginner', 'Intermediate', 'Advanced'],
       unit: '',
-      unitCategories: ["oz", "each"],
+      unitCategories: ["each", "teaspoon", "tablespoon", "cup", "fluid Ounce", "pint", "quart"],
       quantity: '',
-      quantityCategories: ["1/8", "1/4"],
+      quantityCategories: ["1/8", "1/4", "1/3", "1/2", "2/3", "3/4", "1", "2", "3", "4", "5", "6"],
 			ingredients: [],
-			ingredient_name: ''
+			ingredient_name: '',
+			step: '',
+			stepCategories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+			direction: ''
 		};
 		this.getRandomRecipe = this.getRandomRecipe.bind(this);
 		this.handleNameChange = this.handleNameChange.bind(this);
@@ -36,6 +39,8 @@ class App extends Component {
 		this.handleUnitChange = this.handleUnitChange.bind(this);
 		this.handleQuantityChange = this.handleQuantityChange.bind(this);
 		this.handleIngredientChange = this.handleIngredientChange.bind(this);
+		this.handleStepChange = this.handleStepChange.bind(this);
+		this.handleDirectionChange = this.handleDirectionChange.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleFetch = this.handleFetch.bind(this);
 	}
@@ -104,7 +109,6 @@ class App extends Component {
   }
 
 	handleTimeChange(event) {
-		console.log("handle skill change called");
 		let newTime = event.target.value;
 		this.setState({
 			cook_time: newTime
@@ -112,10 +116,25 @@ class App extends Component {
 	}
 
 	handleIngredientChange(event) {
-		console.log("handle skill change called");
 		let newIngredient = event.target.value;
 		this.setState({
 			ingredient_name: newIngredient
+		});
+	}
+
+	handleStepChange(event) {
+		console.log("handle skill change called");
+		let newStep = event.target.value;
+		this.setState({
+			step: newStep
+		});
+	}
+
+	handleDirectionChange(event) {
+		console.log("handle skill change called");
+		let newDirection = event.target.value;
+		this.setState({
+			direction: newDirection
 		});
 	}
 
@@ -128,7 +147,9 @@ class App extends Component {
     skill_level: '',
     unit: '',
     quantity: '',
-		ingredient_name: ''
+		ingredient_name: '',
+		step: '',
+		direction: ''
   });
 }
 
@@ -145,6 +166,10 @@ class App extends Component {
 				unit: this.state.unit,
 				quantity: this.state.quantity,
 				ingredient_name: this.state.ingredient_name
+			},
+			instruction: {
+				step: this.state.step,
+				direction: this.state.direction
 			}
 		};
 		// console.log("creating recipe" + requestBody);
@@ -205,7 +230,7 @@ class App extends Component {
 
         <Select
         handlerFunction = {this.handleQuantityChange}
-        label = 'quantity:'
+        label = 'Quantity:'
         name = 'quantity'
         options = {this.state.quantityCategories}
         selectedOption = {this.state.quantity}
@@ -224,6 +249,21 @@ class App extends Component {
 					label = 'Ingredient:'
 					name = 'ingredient_name'
 					handlerFunction = {this.handleIngredientChange}
+				/>
+
+				<Select
+					handlerFunction = {this.handleStepChange}
+					label = 'Step:'
+					name = 'step'
+					options = {this.state.stepCategories}
+					selectedOption = {this.state.step}
+				/>
+
+				<NewRecipeForm
+					content = {this.state.direction}
+					label = 'Direction:'
+					name = 'direction'
+					handlerFunction = {this.handleDirectionChange}
 				/>
 
     			<input type="submit" className="button" value="Submit "/>
