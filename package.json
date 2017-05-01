@@ -1,5 +1,5 @@
 {
-  "name": "lib-app",
+  "name": "recipe-box",
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
