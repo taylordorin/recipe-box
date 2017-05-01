@@ -3,7 +3,7 @@ var config = {
     path: './react/src/main.js',
   },
   output: {
-    path: __dirname + '/app/assets/javascripts',
+    path: './app/assets/javascripts',
     filename: 'bundle.js'
   },
   module: {
@@ -11,13 +11,12 @@ var config = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel'
       }
     ]
   },
   devtool: 'eval-source-map'
 }
-
 if (process.env.NODE_ENV === 'production') {
   delete config.devtool;
   var webpack = require('webpack');
@@ -25,5 +24,4 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' })
   ];
 }
-
 module.exports = config;
