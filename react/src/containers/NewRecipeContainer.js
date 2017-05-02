@@ -145,7 +145,6 @@ class App extends Component {
   }
 
   handleFetch(requestBody){
-  debugger;
   fetch('/api/v1/recipes', {
     credentials: "include",
     method: "POST",

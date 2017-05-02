@@ -21,13 +21,9 @@ class Api::V1::RecipesController < ApplicationController
   def create
     body = request.body.read
     parsed = JSON.parse(body)
-    binding.pry
-    # binding.pry
     recipe = Recipe.new(parsed["recipe"])
-    binding.pry
     recipe.user = current_user
     if recipe.save
-      # binding.pry
       # render json: { message: "it worked" }
     else
       render json: { message: recipe.errors.full_messages }
@@ -49,13 +45,11 @@ class Api::V1::RecipesController < ApplicationController
       new_instruction = Instruction.new(instruction)
       new_instruction.recipe = recipe
       if new_instruction.save
-        # binding.pry
         # render json: { message: "it worked" }
       else
         render json: { message: recipe.errors.full_messages }
       end
     end
-    # binding.pry
 
   end
 end
