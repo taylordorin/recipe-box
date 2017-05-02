@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class HomeContainer extends Component {
   constructor(props) {
@@ -7,7 +8,10 @@ class HomeContainer extends Component {
 
   render() {
     return(
-      <h1>Hello</h1>
+      <div>
+        <h1>Hello</h1>
+        <span className="button"><Link to='/recipes/new'> New Recipe </Link></span>
+      </div>
     )
   }
 }
