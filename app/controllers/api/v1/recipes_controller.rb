@@ -21,22 +21,41 @@ class Api::V1::RecipesController < ApplicationController
   def create
     body = request.body.read
     parsed = JSON.parse(body)
+    binding.pry
     # binding.pry
     recipe = Recipe.new(parsed["recipe"])
-    # binding.pry
-    ingredient = Ingredient.new(parsed["ingredient"])
-    # binding.pry
-    instruction = Instruction.new(parsed["instruction"])
-    # binding.pry
+    binding.pry
     recipe.user = current_user
-    ingredient.recipe = recipe
-    instruction.recipe = recipe
-
-    if recipe.save && ingredient.save && instruction.save
-        # binding.pry
-        render json: { message: "it worked" }
+    if recipe.save
+      # binding.pry
+      # render json: { message: "it worked" }
     else
       render json: { message: recipe.errors.full_messages }
     end
+
+    ingredientArray = (parsed["ingredient"])
+    ingredientArray.each do |ingredient|
+      new_ingredient = Ingredient.new(ingredient)
+      new_ingredient.recipe = recipe
+      if new_ingredient.save
+        # render json: { message: "it worked" }
+      else
+        render json: { message: recipe.errors.full_messages }
+      end
+    end
+
+    instructionArray = (parsed["instruction"])
+    instructionArray.each do |instruction|
+      new_instruction = Instruction.new(instruction)
+      new_instruction.recipe = recipe
+      if new_instruction.save
+        # binding.pry
+        # render json: { message: "it worked" }
+      else
+        render json: { message: recipe.errors.full_messages }
+      end
+    end
+    # binding.pry
+
   end
 end

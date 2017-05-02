@@ -2,7 +2,7 @@ import React from 'react';
 
 const NewRecipeForm = props => {
   return (
-    <div className="large-6 columns">
+
       <label>{props.label}
         <input
           name={props.name}
@@ -11,7 +11,7 @@ const NewRecipeForm = props => {
           value={props.content}
         />
       </label>
-    </div>
+
   )
 }
 
