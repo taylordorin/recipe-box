@@ -1,21 +1,18 @@
 class Api::V1::RecipesController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   def index
-    recipes_ids = Recipe.all.pluck(:id)
-    # recipes = []
-    # Recipe.all.each do |r|
-    #   recipe = {}
-    #   recipe['ingrediants'] = r.ingrediants
-    #   recipe['name'] = r.name
-    #   recipes << recipe
-    # end
+    recipes = Recipe.all
 
-    render json: recipes_ids
+
+    render json: recipes
   end
 
   def show
     recipe = Recipe.find(params[:id])
-    render json: recipe
+    ingredients = Ingredient.where(recipe_id: recipe.id)
+    instructions = Instruction.where(recipe_id: recipe.id)
+    render json: {recipe: recipe, instructions: instructions, ingredients: ingredients}
+    # render json: recipe
   end
 
   def create
@@ -24,32 +21,29 @@ class Api::V1::RecipesController < ApplicationController
     recipe = Recipe.new(parsed["recipe"])
     recipe.user = current_user
     if recipe.save
+      ingredientArray = (parsed["ingredient"])
+      ingredientArray.each do |ingredient|
+        new_ingredient = Ingredient.new(ingredient)
+        new_ingredient.recipe = recipe
+        if new_ingredient.save
+          instructionArray = (parsed["instruction"])
+          instructionArray.each do |instruction|
+            new_instruction = Instruction.new(instruction)
+            new_instruction.recipe = recipe
+            if new_instruction.save
+              render json: { message: "it worked", id: recipe.id }
+            else
+              render json: { message: recipe.errors.full_messages }
+            end
+          end
+          # render json: { message: "it worked" }
+        else
+          render json: { message: recipe.errors.full_messages }
+        end
+      end
       # render json: { message: "it worked" }
     else
       render json: { message: recipe.errors.full_messages }
     end
-
-    ingredientArray = (parsed["ingredient"])
-    ingredientArray.each do |ingredient|
-      new_ingredient = Ingredient.new(ingredient)
-      new_ingredient.recipe = recipe
-      if new_ingredient.save
-        # render json: { message: "it worked" }
-      else
-        render json: { message: recipe.errors.full_messages }
-      end
-    end
-
-    instructionArray = (parsed["instruction"])
-    instructionArray.each do |instruction|
-      new_instruction = Instruction.new(instruction)
-      new_instruction.recipe = recipe
-      if new_instruction.save
-        # render json: { message: "it worked" }
-      else
-        render json: { message: recipe.errors.full_messages }
-      end
-    end
-
   end
 end

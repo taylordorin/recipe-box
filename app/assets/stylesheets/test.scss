@@ -1,0 +1,233 @@
+/* YOUR STYLING GOES HERE. */
+/*#EFEECC beige
+#FE8B05 orange
+#FE0557 pink
+#400403 brown
+#0AABBA aqua*
+font-family: 'Raleway', sans-serif;
+font-family: 'Playfair Display', serif; */
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display|Raleway);
+$container-width: 750px;
+$container-height: 300px;
+
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+
+.recipe-container {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  // width: $container-width;
+  // height: $container-height;
+  // background-color: white;
+  // overflow: hidden;
+  // box-shadow: 0 0 5rem rgba(black, 0.1);
+  //
+  // &:hover {
+  //   > .baseline-grid {
+  //     opacity: 1;
+  //   }
+  // }
+}
+
+.recipe-content {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  margin-left: 50%;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding: $base-line-height;
+}
+
+.heading-1 {
+  font-size: 1.778rem;
+  line-height: $base-line-height * 2;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1 * $base-line-height 0;
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  &.meta {
+    > .recipe-item {
+      display: inline-block;
+      padding-right: 2rem;
+    }
+  }
+}
+
+.recipe-item {
+  padding: 0 1rem;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  > .recipe-value {
+    font-size: 1.333rem;
+    line-height: $base-line-height * 2;
+    font-weight: bold;
+  }
+
+  > .recipe-text {
+    font-size: 0.75rem;
+    line-height: $base-line-height;
+  }
+
+  & + & {
+    border-left: 1px solid recipe-color('border');
+  }
+}
+
+.recipe-button {
+  appearance: none;
+  background-color: recipe-color('primary');
+  color: white;
+  border: none;
+  height: $base-line-height * 2;
+  padding: 0 1rem;
+  border-radius: $base-line-height;
+  font-size: type-scale(-1);
+
+  &.transparent {
+    background-color: transparent;
+    color: gray;
+  }
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  // background: #1c1c1c;
+}
+
+
+.main h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 69px;
+  font-weight: bold;
+  letter-spacing: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #333333;
+}
+
+.btn {
+  font-family: 'Raleway', sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 8px 0px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: 240px;
+  opacity: 0.5;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+/*style.css:5*/
+
+
+h2 {
+  color: #FE8B05;
+}
+
+h3 {
+  color: white;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+p {
+  color: #0AABBA;
+  line-height: 8px;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+}
+.main {
+  position: relative;
+  top: 180px;
+  text-align: center;
+}
+
+.maincontainer {
+  background-color: #1c1c1c;
+  padding: 20px;
+}
+
+// .row {
+//   text-align: center;
+//   /*background-color: #1c1c1c;
+//   padding: 18px 0 20px;
+//   width: 110%;*/
+// }
+
+.buttonrow {
+  margin-top: 280px;
+}
+
+.baseline {
+  text-align: center;
+  background-color: white;
+  padding: 50px 0 80px;
+  height: 300px;
+}
+
+.backgroundimage {
+  height: 600px;
+  background-image: image-url('striped-apron.jpg');
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-main {
+  background-color: #FE8B05;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  letter-spacing: 2.3px;
+  padding: 16px 30px;
+  text-transform: uppercase;
+  width: 330px;
+  margin: auto;
+  margin-top: 24px;
+}
+
+div.registration {
+  background-color: white;
+  height: 400px;
+}
+
+form {
+  width: 70%;
+  margin: auto;
+}
+
+// h1 {
+//   color: #1c1c1c;
+//   text-align: center;
+//   font-family: 'Raleway', sans-serif;
+// }
+
+label {
+  color: #FE8B05;
+  font-family: 'Playfair Display', serif;
+}
