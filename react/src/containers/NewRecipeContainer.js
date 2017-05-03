@@ -9,22 +9,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ids: [],
+      id: '',
       recipes: [],
       recipe_name: '',
       category: '',
       listedCategories: ['Breakfast', 'Lunch', 'Beverages', 'Appetizers', 'Soups', 'Salads',
-      'Main dishes: Beef', 'Main dishes: Poultry', 'Main dishes: Pork', 'Main dishes: Seafood',
-      'Main dishes: Vegetarian', 'Side dishes: Vegetables', 'Side dishes: Other', 'Desserts',
-      'Canning / Freezing', 'Breads', 'Holidays', 'Entertaining'
-      ],
+      'Beef', 'Poultry', 'Pork', 'Seafood',
+      'Vegetarian', 'Vegetables', 'Other', 'Desserts',
+      'Breads', 'Holidays', 'Entertaining'],
       cook_time: '',
       skill_level: '',
       skillCategories: ['Beginner', 'Intermediate', 'Advanced'],
       ingredients: [],
       instructions: [],
     };
-    this.getRandomRecipe = this.getRandomRecipe.bind(this);
+    // this.getRandomRecipe = this.getRandomRecipe.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,32 +36,32 @@ class App extends Component {
 		this.handleGoBack = this.handleGoBack.bind(this);
   }
 
-  componentDidMount() {
-    fetch('/api/v1/recipes') //recipe.ingredients &
-      .then(response => {
-        let parsed = response.json();
-        return parsed;
-      }).then(ids => {
-        this.setState({
-          ids: ids
-        });
-      });
-  }
-
-    getRandomRecipe() {
-      let recipeIds = this.state.ids;
-      let randomRecipeId = recipeIds[Math.floor(Math.random() * recipeIds.length)];
-      fetch(`/api/v1/recipes/${randomRecipeId}`)
-        .then(response => {
-          let parsed = response.json();
-          return parsed;
-        }).then(recipe => {
-          let newState = [...this.state.recipe, recipe];
-          this.setState({
-            recipes: newState
-          });
-        });
-    }
+  // componentDidMount() {
+  //   fetch('/api/v1/recipes') //recipe.ingredients &
+  //     .then(response => {
+  //       let parsed = response.json();
+  //       return parsed;
+  //     }).then(ids => {
+  //       this.setState({
+  //         ids: ids
+  //       });
+  //     });
+  // }
+  //
+  //   getRandomRecipe() {
+  //     let recipeIds = this.state.ids;
+  //     let randomRecipeId = recipeIds[Math.floor(Math.random() * recipeIds.length)];
+  //     fetch(`/api/v1/recipes/${randomRecipeId}`)
+  //       .then(response => {
+  //         let parsed = response.json();
+  //         return parsed;
+  //       }).then(recipe => {
+  //         let newState = [...this.state.recipe, recipe];
+  //         this.setState({
+  //           recipes: newState
+  //         });
+  //       });
+  //   }
 
   handleNameChange(event) {
     let newName = event.target.value;
@@ -122,8 +121,9 @@ class App extends Component {
 	  });
 	}
 
-	handleGoBack() {
-		browserHistory.push('/');
+	handleGoBack(id) {
+    // debugger;
+		browserHistory.push(`/recipes/${id}`);
 	}
 
   handleSubmit(event) {
@@ -138,10 +138,10 @@ class App extends Component {
       ingredient: this.state.ingredients,
       instruction: this.state.instructions
     };
-    // console.log("creating recipe" + requestBody);
+    console.log("creating recipe" + requestBody);
   this.handleFetch(requestBody);
-  this.handleClearForm(event);
-	this.handleGoBack();
+  // this.handleClearForm(event);
+	// this.handleGoBack(this.state.id);
   }
 
   handleFetch(requestBody){
@@ -155,10 +155,16 @@ class App extends Component {
       return parsed;
     }).then(message => {
       console.log(message);
+      // this.setState({ id: message.id });
+      return message.id;
+    })
+    .then(id => {
+      this.handleGoBack(id);
     });
   }
 
   render() {
+    // debugger;
     let confirmedIngredients = this.state.ingredients.map((ingredient, index) => {
       return(
         <div key={index}>
@@ -174,7 +180,7 @@ class App extends Component {
 	    )
     })
       return (
-      <div >
+      <div className="row column">
         <form onSubmit={this.handleSubmit} className = "callout" >
         <h1> Recipes </h1>
 	      <NewRecipeForm
