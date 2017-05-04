@@ -12,6 +12,12 @@ $container-width: 750px;
 $container-height: 300px;
 $base-font-size: 1rem;
 $base-line-height: 1.25 * $base-font-size;
+$black: #1c2224;
+$blue: #37BECC;
+$green: #84CE15;
+$grey: #777777;
+$light-blue: #E5F3F4;
+
 
 .recipe-container {
   font-family: Raleway, sans-serif;
@@ -118,8 +124,51 @@ $base-line-height: 1.25 * $base-font-size;
   padding-left: $base-line-height;
 }
 
+p {
+  margin-left: 40px;
+  margin-top: 22px;
+  color: $grey;
+  float: none;
+  // font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Raleway', sans-serif;
+  width: 90%;
+}
+
+// .border {
+//   margin-left: 40px;
+//   padding-bottom: 10px;
+//   border-bottom: 2px solid $grey;
+//   width: 91%;
+//   padding-top: 10px;
+// }
+
 .hidden{
   display: none;
+}
+
+div.openbutton {
+  // border: 1px solid black;
+  height: 36px;
+  width: 38px;
+  // margin-left: 40px;
+  // box-shadow: 2px 2px 0px black;
+  // margin-top:-6px;
+  float: left;
+  margin: 20px 20px 20px 0;
+}
+.plus {
+  background-color: $black;
+  color: white;
+}
+.minus {
+  background-color: $green;
+  color: black;
+}
+
+.openbutton {
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
 }
 
 body {
@@ -171,12 +220,12 @@ h3 {
   padding-bottom: 5px;
 }
 
-p {
-  color: #0AABBA;
-  line-height: 8px;
-  font-size: 18px;
-  font-family: 'Raleway', sans-serif;
-}
+// p {
+//   color: #0AABBA;
+//   line-height: 8px;
+//   font-size: 18px;
+//   font-family: 'Raleway', sans-serif;
+// }
 .main {
   position: relative;
   top: 180px;
