@@ -177,8 +177,8 @@ class App extends Component {
 	    )
     })
       return (
-      <div className="row column">
-        <form onSubmit={this.handleSubmit} className = "callout" >
+      <div className="row">
+        <form onSubmit={this.handleSubmit} className = "callout-box" >
         <h1> Recipes </h1>
 	      <NewRecipeForm
 	        content = {this.state.recipe_name}

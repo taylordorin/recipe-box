@@ -7,11 +7,10 @@ const RecipeShow = (props) => {
       width: '129px'
     };
   const divStyle2 = {
-      borderRight: '1pt solid grey',
+      borderRight: '1px solid grey',
     };
   return(
     <div className="row">
-      <div className="large-4 columns">
         <div className="recipe-container">
           <div className="recipe-show">
              <h1 className="heading-1">
@@ -33,7 +32,6 @@ const RecipeShow = (props) => {
              </ul>
           </div>
         </div>
-      </div>
     </div>
   )
 }
