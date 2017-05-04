@@ -138,8 +138,7 @@ class App extends Component {
       ingredient: this.state.ingredients,
       instruction: this.state.instructions
     };
-    console.log("creating recipe" + requestBody);
-  this.handleFetch(requestBody);
+    this.handleFetch(requestBody);
   // this.handleClearForm(event);
 	// this.handleGoBack(this.state.id);
   }
@@ -154,8 +153,6 @@ class App extends Component {
       let parsed = response.json();
       return parsed;
     }).then(message => {
-      console.log(message);
-      // this.setState({ id: message.id });
       return message.id;
     })
     .then(id => {

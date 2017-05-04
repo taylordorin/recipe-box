@@ -16,19 +16,37 @@ class RecipeShowContainer extends Component {
       let parsed = response.json();
       return parsed;
     }).then(parsed => {
-      this.setState({ recipe: parsed.recipe });
+      this.setState({ recipe: parsed});
     });
   }
 
   render() {
+    if (!this.state.recipe.recipe){
+      return false;
+    }
+    // let ingredientsContainer = this.state.recipe.ingredients.map(ingredient => {
+    //   return(
+    //     <IngredientTile
+    //       key={ingredient.id}
+    //       id={ingredient.id}
+    //       recipe_name={recipe.recipe_name}
+    //       category={recipe.category}
+    //       cook_time={recipe.cook_time}
+    //       skill_level={recipe.skill_level}
+    //     />
+    //   )
+    // })
     return(
+      <div>
       <RecipeShow
-        id={this.state.recipe.id}
-        recipe_name={this.state.recipe.recipe_name}
-        category={this.state.recipe.category}
-        cook_time={this.state.recipe.cook_time}
-        skill_level={this.state.recipe.skill_level}
+        id={this.state.recipe.recipe.id}
+        recipe_name={this.state.recipe.recipe.recipe_name}
+        category={this.state.recipe.recipe.category}
+        cook_time={this.state.recipe.recipe.cook_time}
+        skill_level={this.state.recipe.recipe.skill_level}
        />
+       {ingredientsContainer}
+     </div>
     )
   }
 }
