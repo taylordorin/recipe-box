@@ -9,8 +9,10 @@ class RecipeShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      recipe: {}
+      recipe: {},
+      selectedInstructionId: null
     };
+    this.handleDataClick = this.handleDataClick.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +24,14 @@ class RecipeShowContainer extends Component {
     }).then(parsed => {
       this.setState({ recipe: parsed});
     });
+  }
+
+  handleDataClick(id) {
+    if (this.state.selectedInstructionId === id){
+      this.setState({selectedInstructionId: null});
+    } else {
+      this.setState({selectedInstructionId: id});
+    }
   }
 
   render() {
@@ -39,7 +49,19 @@ class RecipeShowContainer extends Component {
         />
       )
     })
+
     let instructionsContainer = this.state.recipe.instructions.map(instruction => {
+      let onDataClick = () => {
+        this.handleDataClick(instruction.id);
+      };
+
+      let isHidden;
+      if (this.state.selectedInstructionId === instruction.id) {
+        isHidden=false;
+      } else {
+        isHidden=true;
+      }
+
       return(
         <InstructionTile
           key={instruction.id}
