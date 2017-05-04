@@ -35,3 +35,6 @@ const RecipeTile = ({ id, recipe_name, category, cook_time, skill_level }) => {
 }
 
 export default RecipeTile;
+
+
+// this is for the front page!!!

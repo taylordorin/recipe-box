@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import RecipeShow from '../components/RecipeShow';
+import IngredientTile from '../components/IngredientTile';
+import InstructionTile from '../components/InstructionTile';
+import { browserHistory, Link } from 'react-router';
+import BackButton from '../components/BackButton';
 
 class RecipeShowContainer extends Component {
   constructor(props) {
@@ -24,18 +28,29 @@ class RecipeShowContainer extends Component {
     if (!this.state.recipe.recipe){
       return false;
     }
-    // let ingredientsContainer = this.state.recipe.ingredients.map(ingredient => {
-    //   return(
-    //     <IngredientTile
-    //       key={ingredient.id}
-    //       id={ingredient.id}
-    //       recipe_name={recipe.recipe_name}
-    //       category={recipe.category}
-    //       cook_time={recipe.cook_time}
-    //       skill_level={recipe.skill_level}
-    //     />
-    //   )
-    // })
+    let ingredientsContainer = this.state.recipe.ingredients.map(ingredient => {
+      return(
+        <IngredientTile
+          key={ingredient.id}
+          id={ingredient.id}
+          quantity={ingredient.quantity}
+          unit={ingredient.unit}
+          ingredient_name={ingredient.ingredient_name}
+        />
+      )
+    })
+    let instructionsContainer = this.state.recipe.instructions.map(instruction => {
+      return(
+        <InstructionTile
+          key={instruction.id}
+          id={instruction.id}
+          step={instruction.step}
+          direction={instruction.direction}
+          handleClick={onDataClick}
+          hidden={isHidden}
+        />
+      )
+    })
     return(
       <div>
       <RecipeShow
@@ -45,7 +60,23 @@ class RecipeShowContainer extends Component {
         cook_time={this.state.recipe.recipe.cook_time}
         skill_level={this.state.recipe.recipe.skill_level}
        />
-       {ingredientsContainer}
+      <div className="row">
+         <div className="large-5 columns">
+          <div className="recipe-item">
+            <div className="recipe-value">Ingredients</div>
+          </div>
+           {ingredientsContainer}
+        </div>
+
+        <div className="large-7 columns">
+          <div className="recipe-item">
+            <div className="recipe-value">Directions</div>
+          </div>
+            {instructionsContainer}
+        </div>
+      </div>
+
+      <BackButton />
      </div>
     )
   }

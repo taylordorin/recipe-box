@@ -29,6 +29,26 @@ $base-line-height: 1.25 * $base-font-size;
   // }
 }
 
+
+.ingredient-show {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  height: 100%;
+  right: 0;
+  top: 0;
+
+}
+
+.recipe-show {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding-top: $base-line-height;
+  padding-bottom: $base-line-height * 2;
+}
+
 .recipe-content {
   font-family: Raleway, sans-serif;
   font-weight: 400;
@@ -87,21 +107,20 @@ $base-line-height: 1.25 * $base-font-size;
 
 .recipe-button {
   appearance: none;
-  background-color: recipe-color('primary');
+  background-color: #0AABBA;
   color: white;
   border: none;
   height: $base-line-height * 2;
   padding: 0 1rem;
   border-radius: $base-line-height;
-  font-size: type-scale(-1);
-
-  &.transparent {
-    background-color: transparent;
-    color: gray;
-  }
+  font-size: 0.75rem;
+  line-height: $base-line-height;
+  padding-left: $base-line-height;
 }
 
-
+.hidden{
+  display: none;
+}
 
 body {
   margin: 0;

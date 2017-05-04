@@ -10,32 +10,35 @@ const RecipeShow = (props) => {
       borderRight: '1pt solid grey',
     };
   return(
-    <div className="recipe-container">
-      <div className="recipe-content">
-         <h1 className="heading-1">
-           {props.recipe_name}
-         </h1>
-         <ul className="recipe-list meta">
-           <li className="recipe-item" style={divStyle}>
-             <div className="recipe-value">{props.category}</div>
-             <div className="recipe-text">Category</div>
-           </li>
-           <li className="recipe-item" style={divStyle2}>
-             <div className="recipe-value">{props.cook_time}</div>
-             <div className="recipe-text">Mins</div>
-           </li>
-           <li className="recipe-item">
-             <div className="recipe-value">{props.skill_level}</div>
-             <div className="recipe-text">Skill Level</div>
-           </li>
-         </ul>
-         <div className="button">
-         <button onClick={browserHistory.goBack}>Back</button>
-         </div>
+    <div className="row">
+      <div className="large-4 columns">
+        <div className="recipe-container">
+          <div className="recipe-show">
+             <h1 className="heading-1">
+               {props.recipe_name}
+             </h1>
+             <ul className="recipe-list meta">
+               <li className="recipe-item" style={divStyle}>
+                 <div className="recipe-value">{props.category}</div>
+                 <div className="recipe-text">Category</div>
+               </li>
+               <li className="recipe-item" style={divStyle2}>
+                 <div className="recipe-value">{props.cook_time}</div>
+                 <div className="recipe-text">Mins</div>
+               </li>
+               <li className="recipe-item">
+                 <div className="recipe-value">{props.skill_level}</div>
+                 <div className="recipe-text">Skill Level</div>
+               </li>
+             </ul>
+          </div>
+        </div>
       </div>
-      </div>
-
+    </div>
   )
 }
 
 export default RecipeShow;
+
+
+// This page shows the recipe
