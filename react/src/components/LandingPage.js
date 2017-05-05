@@ -7,7 +7,7 @@ const LandingPage = props => {
       <div className="backgroundimage">
         <div className="container">
           <div className="main">
-            <h1>HELLO!</h1>
+            <h1>The Dirty Apron</h1>
             <h2 className="btn-main"><Link to='/recipes/new'> add your recipe</Link></h2>
           </div>
         </div>

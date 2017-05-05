@@ -2,8 +2,6 @@ class Api::V1::RecipesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     recipes = Recipe.all
-
-
     render json: recipes
   end
 
@@ -13,6 +11,11 @@ class Api::V1::RecipesController < ApplicationController
     instructions = Instruction.where(recipe_id: recipe.id)
     render json: {recipe: recipe, instructions: instructions, ingredients: ingredients}
     # render json: recipe
+  end
+
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
   end
 
   def create
