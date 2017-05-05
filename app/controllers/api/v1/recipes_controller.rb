@@ -1,7 +1,8 @@
 class Api::V1::RecipesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    recipes = Recipe.all
+
+    recipes = Recipe.where(user: current_user)
     render json: recipes
   end
 
@@ -9,7 +10,10 @@ class Api::V1::RecipesController < ApplicationController
     recipe = Recipe.find(params[:id])
     ingredients = Ingredient.where(recipe_id: recipe.id)
     instructions = Instruction.where(recipe_id: recipe.id)
-    render json: {recipe: recipe, instructions: instructions, ingredients: ingredients}
+    sorted_instructions = instructions.sort_by do |instruction|
+      instruction[:step]
+    end
+    render json: {recipe: recipe, instructions: sorted_instructions, ingredients: ingredients}
     # render json: recipe
   end
 
@@ -22,6 +26,7 @@ class Api::V1::RecipesController < ApplicationController
     body = request.body.read
     parsed = JSON.parse(body)
     recipe = Recipe.new(parsed["recipe"])
+
     recipe.user = current_user
     recipe_saved = recipe.save
     if !recipe_saved
