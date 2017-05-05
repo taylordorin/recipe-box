@@ -23,30 +23,32 @@ class Api::V1::RecipesController < ApplicationController
     parsed = JSON.parse(body)
     recipe = Recipe.new(parsed["recipe"])
     recipe.user = current_user
-    if recipe.save
-      ingredientArray = (parsed["ingredient"])
-      ingredientArray.each do |ingredient|
-        new_ingredient = Ingredient.new(ingredient)
-        new_ingredient.recipe = recipe
-        if new_ingredient.save
-          instructionArray = (parsed["instruction"])
-          instructionArray.each do |instruction|
-            new_instruction = Instruction.new(instruction)
-            new_instruction.recipe = recipe
-            if new_instruction.save
-              render json: { message: "it worked", id: recipe.id }
-            else
-              render json: { message: recipe.errors.full_messages }
-            end
-          end
-          # render json: { message: "it worked" }
-        else
-          render json: { message: recipe.errors.full_messages }
-        end
-      end
-      # render json: { message: "it worked" }
-    else
+    recipe_saved = recipe.save
+    if !recipe_saved
       render json: { message: recipe.errors.full_messages }
+      return
     end
-  end
+    ingredientArray = (parsed["ingredient"])
+    ingredientArray.each do |ingredient|
+      new_ingredient = Ingredient.new(ingredient)
+      new_ingredient.recipe = recipe
+      ingredient_saved = new_ingredient.save
+      if !ingredient_saved
+         render json: { message: recipe.errors.full_messages }
+         return
+      end
+    end
+    instructionArray = (parsed["instruction"])
+    instructionArray.each do |instruction|
+      new_instruction = Instruction.new(instruction)
+      new_instruction.recipe = recipe
+      instruction_saved = new_instruction.save
+      if !instruction_saved
+        render json: { message: recipe.errors.full_messages }
+        return
+      end
+     end
+     render json: { message: "it worked", id: recipe.id }
+   end
+
 end

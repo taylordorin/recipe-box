@@ -128,6 +128,8 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    console.log("submitting")
+    console.log(this.state);
     let requestBody = {
       recipe: {
         recipe_name: this.state.recipe_name,
@@ -139,6 +141,8 @@ class App extends Component {
       instruction: this.state.instructions
     };
     this.handleFetch(requestBody);
+    console.log("submitting request body")
+    console.log(requestBody)
   // this.handleClearForm(event);
 	// this.handleGoBack(this.state.id);
   }
