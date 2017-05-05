@@ -38,6 +38,7 @@ class RecipeShowContainer extends Component {
     if (!this.state.recipe.recipe){
       return false;
     }
+    console.log(this.state.recipe);
     let ingredientsContainer = this.state.recipe.ingredients.map(ingredient => {
       return(
         <IngredientTile
@@ -75,6 +76,7 @@ class RecipeShowContainer extends Component {
     })
     return(
       <div>
+      <div className="showtopper"></div>
       <RecipeShow
         id={this.state.recipe.recipe.id}
         recipe_name={this.state.recipe.recipe.recipe_name}
@@ -107,6 +109,16 @@ class RecipeShowContainer extends Component {
 export default RecipeShowContainer;
 
 //
+// <div>
+//   <div className="backgroundimage">
+//     <div className="container">
+//       <div className="main">
+//         <h1>The Dirty Apron</h1>
+//         <h2 className="btn-main"><Link to='/recipes/new'> add your recipe</Link></h2>
+//       </div>
+//     </div>
+//   </div>
+// </div>
 
 // import React from 'react';
 // import { Route, IndexRoute, Router, browserHistory } from 'react-router';

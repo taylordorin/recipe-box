@@ -7,16 +7,20 @@
 font-family: 'Raleway', sans-serif;
 font-family: 'Playfair Display', serif; */
 
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display|Raleway);
+@import url(https://fonts.googleapis.com/css?family=Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
 $container-width: 750px;
 $container-height: 300px;
 $base-font-size: 1rem;
 $base-line-height: 1.25 * $base-font-size;
 $black: #1c2224;
 $blue: #37BECC;
+$dark-grey: #1c1c1c;
 $green: #84CE15;
 $grey: #777777;
 $light-blue: #E5F3F4;
+// font-family: 'Homemade Apple', cursive;
+// font-family: 'Petit Formal Script', cursive;
+// font-family: 'Meddon', cursive;
 
 
 .recipe-container {
@@ -170,13 +174,11 @@ body {
 
 
 .main h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Meddon', cursive;
   font-size: 69px;
   font-weight: bold;
-  letter-spacing: 13px;
-  text-transform: uppercase;
   text-align: center;
-  color: #333333;
+  color: $dark-grey;
 }
 
 .btn {
@@ -224,7 +226,7 @@ h3 {
 }
 
 .maincontainer {
-  background-color: #1c1c1c;
+  background-color: $dark-grey;
   padding: 20px;
 }
 
@@ -248,13 +250,27 @@ h3 {
 }
 
 .backgroundimage {
-  height: 600px;
-  background-image: image-url('striped-apron.jpg');
+  height: 400px;
+  background-image: image-url('apron.jpg');
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
   padding: 0;
+  border-bottom: 2px solid $grey;
+  border-top: 2px solid $grey;
+}
+
+.showtopper {
+  height: 200px;
+  background-image: image-url('bakerytable.jpg');
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid $grey;
+  border-top: 2px solid $grey;
 }
 
 .btn-main {
@@ -281,11 +297,20 @@ form {
   margin: auto;
 }
 
+.top-bar, .top-bar ul {
+  background-color: whitesmoke;
+}
 // h1 {
 //   color: #1c1c1c;
 //   text-align: center;
 //   font-family: 'Raleway', sans-serif;
 // }
+
+li.menu-text {
+  font-family: 'Meddon', cursive;
+  color: $dark-grey;
+  font-size: 1.2em;
+}
 
 label {
   color: #FE8B05;
