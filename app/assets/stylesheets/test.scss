@@ -150,15 +150,16 @@ div.openbutton {
   float: left;
   margin: 20px 20px 20px 0;
   border-radius: 50%;
-  padding: 4px;
 }
 .plus {
+  padding: 4px;
   background-color: #0AABBA;
   color: white;
 }
 .minus {
   background-color: $green;
   color: black;
+  padding: 6px;
 }
 
 .openbutton {

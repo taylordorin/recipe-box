@@ -20,7 +20,7 @@ class InstructionTile extends Component {
       plusMinusIcon = `${this.props.step}`;
       openbutton = "openbutton plus";
     } else {
-      plusMinusIcon = '-';
+      plusMinusIcon = 'X';
       openbutton = "openbutton minus";
     }
 

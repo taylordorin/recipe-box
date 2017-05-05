@@ -9,10 +9,31 @@ class HomeContainer extends Component {
       this.state={
       recipes: []
     };
-  }
+    this.handleRandomClick = this.handleRandomClick.bind(this);
+    this.randomFetch = this.randomFetch.bind(this);
+    }
+
+    handleRandomClick(event){
+      event.preventDefault()
+      this.randomFetch()
+    }
+
+    randomFetch() {
+      fetch('/api/v1/randoms/', {
+        credentials: "include",
+        method: "GET"
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({ recipes: [body] });
+      })
+    }
 
   componentDidMount() {
-    fetch('/api/v1/recipes')
+    fetch('/api/v1/recipes', {
+      credentials: "include",
+      method: "GET"
+    })
     .then(response => {
       let parsed = response.json();
       return parsed;
@@ -38,6 +59,7 @@ class HomeContainer extends Component {
     return(
       <div>
         <LandingPage />
+        <button className="random-button" onClick={this.handleRandomClick}>Random</button>
         {recipesContainer}
       </div>
     )

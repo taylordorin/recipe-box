@@ -5,7 +5,7 @@ import IngredientFormContainer from './IngredientFormContainer';
 import DirectionFormContainer from './DirectionFormContainer';
 import { browserHistory } from 'react-router';
 
-class App extends Component {
+class NewRecipeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -234,4 +234,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default NewRecipeContainer;
