@@ -9,6 +9,7 @@ class NewRecipeContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      errors: {},
       id: '',
       recipes: [],
       recipe_name: '',
@@ -23,7 +24,6 @@ class NewRecipeContainer extends Component {
       ingredients: [],
       instructions: [],
     };
-    // this.getRandomRecipe = this.getRandomRecipe.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,36 +34,13 @@ class NewRecipeContainer extends Component {
 		this.addIngredient = this.addIngredient.bind(this);
 		this.addInstruction = this.addInstruction.bind(this);
 		this.handleGoBack = this.handleGoBack.bind(this);
+
+    this.validateNameChange = this.validateNameChange.bind(this);
+    this.validateCategoryChange = this.validateCategoryChange.bind(this);
   }
 
-  // componentDidMount() {
-  //   fetch('/api/v1/recipes') //recipe.ingredients &
-  //     .then(response => {
-  //       let parsed = response.json();
-  //       return parsed;
-  //     }).then(ids => {
-  //       this.setState({
-  //         ids: ids
-  //       });
-  //     });
-  // }
-  //
-  //   getRandomRecipe() {
-  //     let recipeIds = this.state.ids;
-  //     let randomRecipeId = recipeIds[Math.floor(Math.random() * recipeIds.length)];
-  //     fetch(`/api/v1/recipes/${randomRecipeId}`)
-  //       .then(response => {
-  //         let parsed = response.json();
-  //         return parsed;
-  //       }).then(recipe => {
-  //         let newState = [...this.state.recipe, recipe];
-  //         this.setState({
-  //           recipes: newState
-  //         });
-  //       });
-  //   }
-
   handleNameChange(event) {
+    this.validateNameChange(event.target.value)
     let newName = event.target.value;
     this.setState({
       recipe_name: newName
@@ -71,6 +48,7 @@ class NewRecipeContainer extends Component {
   }
 
   handleCategoryChange(event) {
+    this.validateCategoryChange(event.target.value);
     let newCategory = event.target.value;
     this.setState({
       category: newCategory
@@ -106,6 +84,32 @@ class NewRecipeContainer extends Component {
 		});
   }
 
+  validateNameChange(recipeNameField) {
+    if (recipeNameField === '' || recipeNameField === ' ') {
+      let newError = {recipe_name: 'Recipe name field may not be blank.' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    }else{
+      let errorState = this.state.errors;
+      delete errorState.recipe_name;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
+  validateCategoryChange(recipeCategoryField) {
+    if (recipeCategoryField === '' || recipeCategoryField === ' ') {
+      let newError = {category: 'Category field may not be blank.' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    }else{
+      let errorState = this.state.errors;
+      delete errorState.category;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
   handleClearForm(event) {
   event.preventDefault();
 	  this.setState({
@@ -122,29 +126,27 @@ class NewRecipeContainer extends Component {
 	}
 
 	handleGoBack(id) {
-    // debugger;
 		browserHistory.push(`/recipes/${id}`);
 	}
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("submitting")
-    console.log(this.state);
-    let requestBody = {
-      recipe: {
-        recipe_name: this.state.recipe_name,
-        category: this.state.category,
-        cook_time: this.state.cook_time,
-        skill_level: this.state.skill_level
-      },
-      ingredient: this.state.ingredients,
-      instruction: this.state.instructions
-    };
-    this.handleFetch(requestBody);
-    console.log("submitting request body")
-    console.log(requestBody)
-  // this.handleClearForm(event);
-	// this.handleGoBack(this.state.id);
+    if (
+      this.validateNameChange(this.state.recipe_name) &&
+      this.validateCategoryChange(this.state.category)
+    ) {
+      let requestBody = {
+        recipe: {
+          recipe_name: this.state.recipe_name,
+          category: this.state.category,
+          cook_time: this.state.cook_time,
+          skill_level: this.state.skill_level
+        },
+        ingredient: this.state.ingredients,
+        instruction: this.state.instructions
+      };
+      this.handleFetch(requestBody);
+    }
   }
 
   handleFetch(requestBody){
@@ -165,7 +167,15 @@ class NewRecipeContainer extends Component {
   }
 
   render() {
-    // debugger;
+    let errorDiv;
+    let errorItems;
+    if (Object.keys(this.state.errors).length > 0) {
+      errorItems = Object.values(this.state.errors).map(error => {
+        return(<li key={error}>{error}</li>)
+      })
+      errorDiv = <div className="callout alert">{errorItems}</div>
+    }
+
     let confirmedIngredients = this.state.ingredients.map((ingredient, index) => {
       return(
         <div key={index}>
@@ -184,6 +194,7 @@ class NewRecipeContainer extends Component {
       <div className="row">
         <form onSubmit={this.handleSubmit} className = "callout-box" >
         <h1> Recipes </h1>
+        {errorDiv}
 	      <NewRecipeForm
 	        content = {this.state.recipe_name}
 	        label = 'Recipe Name:'
