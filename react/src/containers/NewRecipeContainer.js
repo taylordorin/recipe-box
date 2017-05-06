@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import NewRecipeForm from '../components/NewRecipeForm';
-import Select from '../components/Select';
+import RecipeFormTile from '../components/RecipeFormTile';
 import IngredientFormContainer from './IngredientFormContainer';
 import DirectionFormContainer from './DirectionFormContainer';
 import { browserHistory } from 'react-router';
@@ -196,35 +195,29 @@ class NewRecipeContainer extends Component {
         <form onSubmit={this.handleSubmit} className = "callout-box" >
         <h1> Recipes </h1>
         {errorDiv}
-	      <NewRecipeForm
-	        content = {this.state.recipe_name}
-	        label = 'Recipe Name:'
-	        name = 'recipe_name'
-	        handlerFunction = {this.handleNameChange}
-	      />
+        <RecipeFormTile
+          recipeContent = {this.state.recipe_name}
+          recipeLabel = 'Recipe Name:'
+          recipeName = 'recipe_name'
+          recipeHandlerFunction = {this.handleNameChange}
 
-      	<Select
-          handlerFunction = {this.handleTimeChange}
-          label = 'Serves:'
-          name = 'cook_time'
-          options = {this.state.cookTimeCategories}
-          selectedOption = {this.state.cook_time}
-        />
+          servingHandlerFunction = {this.handleTimeChange}
+          servingLabel = 'Serves:'
+          servingName = 'cook_time'
+          servingsOptions = {this.state.cookTimeCategories}
+          servingSelectedOption = {this.state.cook_time}
 
-        <Select
-          handlerFunction = {this.handleCategoryChange}
-          label = 'Category:'
-          name = 'category'
-          options = {this.state.listedCategories}
-          selectedOption = {this.state.category}
-        />
+          categoryHandlerFunction = {this.handleCategoryChange}
+          categoryLabel = 'Category:'
+          categoryName = 'category'
+          categoryOptions = {this.state.listedCategories}
+          categorySelectedOption = {this.state.category}
 
-        <Select
-          handlerFunction = {this.handleSkillChange}
-          label = 'Skill Level:'
-          name = 'skill_level'
-          options = {this.state.skillCategories}
-          selectedOption = {this.state.skill_level}
+          skillHandlerFunction = {this.handleSkillChange}
+          skillLabel = 'Skill Level:'
+          skillName = 'skill_level'
+          skillOptions = {this.state.skillCategories}
+          skillSelectedOption = {this.state.skill_level}
         />
 
         <h3>Ingredients</h3>
@@ -234,13 +227,13 @@ class NewRecipeContainer extends Component {
           addIngredient = {this.addIngredient}
         />
 
-        <h3>Directions</h3>
+        <h3 className="direction-heading">Directions</h3>
         {confirmedInstructions}
         <DirectionFormContainer
           clear = {this.handleClearForm}
 					addInstruction = {this.addInstruction}
         />
-        <input type="submit" className="button" value="Submit "/>
+        <input type="submit" className="recipe-button" value="Submit "/>
 	      </form>
       </div >
     )

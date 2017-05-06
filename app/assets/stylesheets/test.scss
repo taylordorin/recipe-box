@@ -28,7 +28,6 @@ $light-blue: #E5F3F4;
   font-weight: 400;
 }
 
-
 .ingredient-show {
   font-family: Raleway, sans-serif;
   font-weight: 400;
@@ -56,13 +55,10 @@ $light-blue: #E5F3F4;
   right: 0;
   top: 0;
   padding: $base-line-height;
-  // width: 500px;
-  // height: 600px;
-  // overflow: scroll;
-      overflow-y: scroll;
+  overflow-y: scroll;
 }
 .scroll-box {
-    height: 400px; /* maximum height of the box, feel free to change this! */
+    height: 400px;
     overflow-y: scroll;
 }
 
@@ -73,6 +69,7 @@ $light-blue: #E5F3F4;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 1 * $base-line-height 0;
+  text-align: left;
 }
 
 
@@ -80,6 +77,7 @@ $light-blue: #E5F3F4;
   list-style-type: none;
   padding: 0;
   margin: 0;
+  text-align: left;
 
   &.meta {
     > .recipe-item {
@@ -112,37 +110,24 @@ $light-blue: #E5F3F4;
   }
 }
 
-.recipe-button {
-  appearance: none;
-  background-color: #0AABBA;
-  color: white;
-  border: none;
-  height: $base-line-height * 2;
-  padding: 0 1rem;
-  border-radius: $base-line-height;
-  font-size: 0.75rem;
-  line-height: $base-line-height;
-  padding-left: $base-line-height;
-}
-
 p {
   margin-top: 22px;
   font-size: 18px;
   margin-left: 20px;
   color: $black;
   float: none;
-  // font-family: "Comic Sans MS", cursive, sans-serif;
   font-family: 'Raleway', sans-serif;
   width: 90%;
 }
 
-form.callout-box {
-    position: relative;
-    padding: 1rem;
-    border: 1px solid rgba(10, 10, 10, 0.25);
-    border-radius: 0;
-    background-color: white;
-    color: #0a0a0a;
+.callout-box {
+  position: relative;
+  margin-top: 20px;
+  padding: 1rem;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  background-color: white;
+  color: #0a0a0a;
 }
 
 
@@ -152,38 +137,10 @@ p.hidden{
   // display: none;
 }
 
-
-div.openbutton {
-  font-family: Raleway, sans-serif;
-  font-size: 1rem;
-  height: 36px;
-  width: 38px;
-  float: left;
-  margin: 20px 20px 20px 0;
-  border-radius: 50%;
-}
-.plus {
-  padding: 4px;
-  background-color: #0AABBA;
-  color: white;
-}
-.minus {
-  background-color: $green;
-  color: black;
-  padding: 6px;
-}
-
-.openbutton {
-  font-size: 23px;
-  font-weight: bold;
-  text-align: center;
-}
-
 body {
   margin: 0;
   padding: 0;
 }
-
 
 .main h1 {
   font-family: 'Meddon', cursive;
@@ -193,23 +150,6 @@ body {
   color: $dark-grey;
 }
 
-.btn {
-  font-family: 'Raleway', sans-serif;
-  background-color: white;
-  border: 1px solid black;
-  font-size: 18px;
-  padding: 8px 0px;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  width: 240px;
-  opacity: 0.5;
-}
-
-.btn:hover {
-  opacity: 1;
-}
 
 /*style.css:5*/
 
@@ -223,6 +163,10 @@ h3 {
   font-family: 'Playfair Display', serif;
   text-transform: uppercase;
   padding-bottom: 5px;
+  padding-top: 10px;
+}
+h3.direction-heading {
+  padding-top: 40px;
 }
 
 // p {
@@ -244,9 +188,6 @@ h3 {
 
 .row {
   margin: none;
-  /*background-color: #1c1c1c;
-  padding: 18px 0 20px;
-  width: 110%;*/
 }
 
 .row-no {
@@ -255,9 +196,6 @@ h3 {
   /*background-color: #1c1c1c;
   padding: 18px 0 20px;
   width: 110%;*/
-}
-.buttonrow {
-  margin-top: 280px;
 }
 
 .baseline {
@@ -291,20 +229,6 @@ h3 {
   border-top: 2px solid $grey;
 }
 
-.btn-main {
-  background-color: #FE8B05;
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-weight: bolder;
-  font-size: 18px;
-  letter-spacing: 2.3px;
-  padding: 16px 30px;
-  text-transform: uppercase;
-  width: 330px;
-  margin: auto;
-  margin-top: 24px;
-}
-
 div.registration {
   background-color: white;
   height: 400px;
@@ -333,4 +257,99 @@ li.menu-text {
 label {
   color: #FE8B05;
   font-family: 'Playfair Display', serif;
+}
+
+// BUTTONS
+.recipe-button {
+  appearance: none;
+  background-color: #0AABBA;
+  color: white;
+  border: none;
+  height: $base-line-height * 2;
+  padding: 0 1rem;
+  border-radius: $base-line-height;
+  font-size: 0.75rem;
+  line-height: $base-line-height;
+  padding-left: $base-line-height;
+}
+
+.form-button {
+  appearance: none;
+  background-color: #0AABBA;
+  color: white;
+  border: none;
+  float: right;
+  height: $base-line-height * 2;
+  padding: 0 1rem;
+  border-radius: $base-line-height;
+  font-size: 0.75rem;
+  line-height: $base-line-height;
+  padding-right: $base-line-height;
+}
+
+.form-button:hover {
+  background-color: $grey;
+}
+
+
+div.openbutton {
+  font-family: Raleway, sans-serif;
+  font-size: 1rem;
+  height: 36px;
+  width: 38px;
+  float: left;
+  margin: 20px 20px 20px 0;
+  border-radius: 50%;
+}
+.plus {
+  padding: 4px;
+  background-color: #0AABBA;
+  color: white;
+}
+.minus {
+  background-color: $green;
+  color: black;
+  padding: 6px;
+}
+
+.openbutton {
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn {
+  font-family: 'Raleway', sans-serif;
+  background-color: white;
+  border: 1px solid black;
+  font-size: 18px;
+  padding: 8px 0px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  width: 240px;
+  opacity: 0.5;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.buttonrow {
+  margin-top: 280px;
+}
+
+.btn-main {
+  background-color: #FE8B05;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  letter-spacing: 2.3px;
+  padding: 16px 30px;
+  text-transform: uppercase;
+  width: 330px;
+  margin: auto;
+  margin-top: 24px;
 }
