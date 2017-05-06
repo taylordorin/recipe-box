@@ -1,6 +1,5 @@
 import React from 'react';
-import NewRecipeForm from '../components/NewRecipeForm';
-import Select from '../components/Select';
+import InstructionFormTile from '../components/InstructionFormTile';
 
 class DirectionFormContainer extends React.Component {
   constructor(props) {
@@ -96,21 +95,19 @@ class DirectionFormContainer extends React.Component {
     return (
       <div >
       {errorDiv}
-        <Select
-          handlerFunction = {this.handleStepChange}
-          label = 'Step:'
-          name = 'step'
-          options = {this.state.stepCategories}
-          selectedOption = {this.state.step}
-        />
+        <InstructionFormTile
+          stepHandlerFunction = {this.handleStepChange}
+          stepLabel = 'Step:'
+          stepName = 'step'
+          stepOptions = {this.state.stepCategories}
+          stepSelectedOption = {this.state.step}
 
-        <NewRecipeForm
-          content = {this.state.direction}
-          label = 'Direction:'
-          name = 'direction'
-          handlerFunction = {this.handleDirectionChange}
+          instructionContent = {this.state.direction}
+          instructionLabel = 'Directions:'
+          instructionName = 'direction'
+          instructionHandlerFunction = {this.handleDirectionChange}
         />
-        <input type="button" className="button" value="Add Direction" onClick={this.sendInstructionToForm}/>
+        <input type="button" className="form-button" value="Add Direction" onClick={this.sendInstructionToForm}/>
       < /div >
     )
   }

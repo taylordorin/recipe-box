@@ -22,7 +22,7 @@ const RecipeTile = ({ id, recipe_name, category, cook_time, skill_level }) => {
            </li>
            <li className="recipe-item" style={divStyle2}>
              <div className="recipe-value">{cook_time}</div>
-             <div className="recipe-text">Mins</div>
+             <div className="recipe-text">Servings</div>
            </li>
            <li className="recipe-item">
              <div className="recipe-value">{skill_level}</div>

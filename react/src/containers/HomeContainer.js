@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import RecipeTile from '../components/RecipeTile'
 import LandingPage from '../components/LandingPage';
+import Boxes from '../components/Boxes';
 
 class HomeContainer extends Component {
   constructor(props) {
@@ -59,6 +60,7 @@ class HomeContainer extends Component {
     return(
       <div>
         <LandingPage />
+        <div className="row"><Boxes /></div>
         <button className="random-button" onClick={this.handleRandomClick}>Random</button>
         {recipesContainer}
       </div>

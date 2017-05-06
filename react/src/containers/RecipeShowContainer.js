@@ -76,63 +76,32 @@ class RecipeShowContainer extends Component {
     })
     return(
       <div>
-      <div className="showtopper"></div>
-      <RecipeShow
-        id={this.state.recipe.recipe.id}
-        recipe_name={this.state.recipe.recipe.recipe_name}
-        category={this.state.recipe.recipe.category}
-        cook_time={this.state.recipe.recipe.cook_time}
-        skill_level={this.state.recipe.recipe.skill_level}
-       />
-      <div className="row">
-         <div className="large-5 columns">
-          <div className="recipe-item">
-            <div className="recipe-value">Ingredients</div>
+        <div className="showtopper"></div>
+          <RecipeShow
+            id={this.state.recipe.recipe.id}
+            recipe_name={this.state.recipe.recipe.recipe_name}
+            category={this.state.recipe.recipe.category}
+            cook_time={this.state.recipe.recipe.cook_time}
+            skill_level={this.state.recipe.recipe.skill_level}
+           />
+        <div className="row">
+           <div className="large-5 columns">
+            <div className="recipe-item">
+              <div className="recipe-value">Ingredients</div>
+            </div>
+              {ingredientsContainer}
+            <div><BackButton /></div>
           </div>
-           {ingredientsContainer}
-        </div>
-
-        <div className="large-7 columns">
-          <div className="recipe-item">
-            <div className="recipe-value">Directions</div>
+          <div className="large-7 columns">
+            <div className="recipe-item">
+             <div className="recipe-value">Directions</div>
+            </div>
+          {instructionsContainer}
           </div>
-            {instructionsContainer}
         </div>
       </div>
-
-      <BackButton />
-     </div>
     )
   }
 }
 
 export default RecipeShowContainer;
-
-//
-// <div>
-//   <div className="backgroundimage">
-//     <div className="container">
-//       <div className="main">
-//         <h1>The Dirty Apron</h1>
-//         <h2 className="btn-main"><Link to='/recipes/new'> add your recipe</Link></h2>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-// import React from 'react';
-// import { Route, IndexRoute, Router, browserHistory } from 'react-router';
-// import ArticlesIndexContainer from './containers/ArticlesIndexContainer';
-// import ArticleShowContainer from './containers/ArticleShowContainer';
-//
-// const App = (props) => {
-//   return (
-//     <Router history={browserHistory}>
-//       <Route path='/' component={ArticlesIndexContainer} />
-//       <Route path='/articles' component={ArticlesIndexContainer} />
-//       <Route path='/articles/:id' component={ArticleShowContainer} />
-//     </Router>
-//   );
-// }
-//
-// export default App;

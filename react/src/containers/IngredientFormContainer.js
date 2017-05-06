@@ -1,6 +1,5 @@
 import React from 'react';
-import NewRecipeForm from '../components/NewRecipeForm';
-import Select from '../components/Select';
+import IngredientFormTile from '../components/IngredientFormTile';
 
 class IngredientFormContainer extends React.Component {
   constructor(props) {
@@ -8,7 +7,7 @@ class IngredientFormContainer extends React.Component {
     this.state = {
       errors: {},
       unit: '',
-      unitCategories: ["each", "teaspoon", "tablespoon", "cup", "Ounce", "fluid Ounce", "pint", "quart"],
+      unitCategories: ["ea.", "tsp.", "tbsp.", "cup", "oz.", "lb.", "fl. oz.", "pt.", "qt."],
       quantity: '',
 			ingredient_name: ''
     };
@@ -119,28 +118,24 @@ class IngredientFormContainer extends React.Component {
     return (
       <div>
       {errorDiv}
-        <NewRecipeForm
-          content = {this.state.quantity}
-          label = 'Quantity:'
-          name = 'quantity'
-          handlerFunction = {this.handleQuantityChange}
-        />
+        <IngredientFormTile
+          quantityContent = {this.state.quantity}
+          quantityLabel = 'Quantity:'
+          quantityName = 'quantity'
+          quantityHandlerFunction = {this.handleQuantityChange}
 
-        <Select
-          handlerFunction = {this.handleUnitChange}
-          label = 'Unit:'
-          name = 'unit'
-          options = {this.state.unitCategories}
-          selectedOption = {this.state.unit}
-        />
+          unitHandlerFunction = {this.handleUnitChange}
+          unitLabel = 'Unit:'
+          unitName = 'unit'
+          unitOptions = {this.state.unitCategories}
+          unitSelectedOption = {this.state.unit}
 
-        <NewRecipeForm
-          content = {this.state.ingredient_name}
-          label = 'Ingredient:'
-          name = 'ingredient_name'
-          handlerFunction = {this.handleIngredientChange}
+          ingredientContent = {this.state.ingredient_name}
+          ingredientLabel = 'Ingredient:'
+          ingredientName = 'ingredient_name'
+          ingredientHandlerFunction = {this.handleIngredientChange}
         />
-        <input type="button" className="button" value="Add Ingredient" onClick={this.sendIngredientToForm}/>
+        <input type="button" className="form-button" value="Add Ingredient" onClick={this.sendIngredientToForm}/>
       </div>
     )
   }
