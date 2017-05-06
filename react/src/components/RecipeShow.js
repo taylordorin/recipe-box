@@ -23,7 +23,7 @@ const RecipeShow = (props) => {
                </li>
                <li className="recipe-item" style={divStyle2}>
                  <div className="recipe-value">{props.cook_time}</div>
-                 <div className="recipe-text">Mins</div>
+                 <div className="recipe-text">Servings</div>
                </li>
                <li className="recipe-item">
                  <div className="recipe-value">{props.skill_level}</div>

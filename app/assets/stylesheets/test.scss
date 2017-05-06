@@ -35,7 +35,6 @@ $light-blue: #E5F3F4;
   height: 100%;
   right: 0;
   top: 0;
-
 }
 
 .recipe-show {
@@ -57,6 +56,14 @@ $light-blue: #E5F3F4;
   right: 0;
   top: 0;
   padding: $base-line-height;
+  // width: 500px;
+  // height: 600px;
+  // overflow: scroll;
+      overflow-y: scroll;
+}
+.scroll-box {
+    height: 400px; /* maximum height of the box, feel free to change this! */
+    overflow-y: scroll;
 }
 
 .heading-1 {
@@ -67,6 +74,7 @@ $light-blue: #E5F3F4;
   letter-spacing: 1px;
   margin: 1 * $base-line-height 0;
 }
+
 
 .recipe-list {
   list-style-type: none;
@@ -119,6 +127,7 @@ $light-blue: #E5F3F4;
 
 p {
   margin-top: 22px;
+  font-size: 18px;
   margin-left: 20px;
   color: $black;
   float: none;
@@ -136,8 +145,10 @@ form.callout-box {
     color: #0a0a0a;
 }
 
-.hidden{
+
+p.hidden{
   opacity: 0.35;
+
   // display: none;
 }
 
@@ -233,12 +244,18 @@ h3 {
 
 .row {
   margin: none;
-  width: 70%
   /*background-color: #1c1c1c;
   padding: 18px 0 20px;
   width: 110%;*/
 }
 
+.row-no {
+  margin: none;
+  width: 75%
+  /*background-color: #1c1c1c;
+  padding: 18px 0 20px;
+  width: 110%;*/
+}
 .buttonrow {
   margin-top: 280px;
 }

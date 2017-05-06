@@ -26,12 +26,12 @@ class InstructionTile extends Component {
 
     return(
       <div className="row">
-        <div className="small-1 columns">
+        <div className="large-1 columns">
           <div className={openbutton}
             onClick={this.props.handleClick}>{plusMinusIcon}
           </div>
         </div>
-        <div className="small-11 columns">
+        <div className="large-11 columns">
           <p className={hidden}>{this.props.direction}</p>
         </div>
       </div>

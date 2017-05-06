@@ -19,6 +19,7 @@ class NewRecipeContainer extends Component {
       'Vegetarian', 'Vegetables', 'Other', 'Desserts',
       'Breads', 'Holidays', 'Entertaining'],
       cook_time: '',
+      cookTimeCategories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
       skill_level: '',
       skillCategories: ['Beginner', 'Intermediate', 'Advanced'],
       ingredients: [],
@@ -202,11 +203,12 @@ class NewRecipeContainer extends Component {
 	        handlerFunction = {this.handleNameChange}
 	      />
 
-      	<NewRecipeForm
-          content = {this.state.cook_time}
-          label = 'Cook Time in minutes:'
-          name = 'cook_time'
+      	<Select
           handlerFunction = {this.handleTimeChange}
+          label = 'Serves:'
+          name = 'cook_time'
+          options = {this.state.cookTimeCategories}
+          selectedOption = {this.state.cook_time}
         />
 
         <Select
