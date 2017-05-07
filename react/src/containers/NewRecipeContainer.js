@@ -178,14 +178,14 @@ class NewRecipeContainer extends Component {
 
     let confirmedIngredients = this.state.ingredients.map((ingredient, index) => {
       return(
-        <div key={index}>
+        <div key={index} className="form-complete">
           {ingredient.quantity} {ingredient.unit} {ingredient.ingredient_name}
         </div>
     )
   })
 	  let confirmedInstructions = this.state.instructions.map((instruction, index) => {
 	    return(
-	      <div key={index}>
+	      <div key={index} className="form-complete">
 	        {instruction.step} {instruction.direction}
 	      </div>
 	    )

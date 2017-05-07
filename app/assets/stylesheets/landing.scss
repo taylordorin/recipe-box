@@ -1,0 +1,28 @@
+
+$grey: #777777;
+
+.backgroundimage {
+
+  height: 800px;
+  background-image: image-url('landing-page-apron.jpg');
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid $grey;
+  border-top: 2px solid $grey;
+}
+
+
+.showtopper {
+  height: 200px;
+  background-image: image-url('bakerytable.jpg');
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  border-bottom: 2px solid $grey;
+  border-top: 2px solid $grey;
+}

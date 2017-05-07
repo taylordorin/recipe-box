@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import RecipeTile from '../components/RecipeTile'
-import LandingPage from '../components/LandingPage';
 import Boxes from '../components/Boxes';
+import HeaderEntry from '../components/HeaderEntry';
 
 class HomeContainer extends Component {
   constructor(props) {
     super(props);
       this.state={
-      recipes: []
+      recipes: [],
+      randomRecipe: ""
     };
     this.handleRandomClick = this.handleRandomClick.bind(this);
     this.randomFetch = this.randomFetch.bind(this);
@@ -26,7 +27,7 @@ class HomeContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ recipes: [body] });
+        this.setState({ randomRecipe: body });
       })
     }
 
@@ -44,24 +45,65 @@ class HomeContainer extends Component {
   }
 
   render() {
-    let recipesContainer = this.state.recipes.map(recipe => {
-      return(
-        <RecipeTile
-          key={recipe.id}
-          id={recipe.id}
-          recipe_name={recipe.recipe_name}
-          category={recipe.category}
-          cook_time={recipe.cook_time}
-          skill_level={recipe.skill_level}
+    console.log(this.state.randomRecipe);
+
+    let randomRecipesContainer = (this.state.randomRecipe)
+    ? (<RecipeTile
+          key={this.state.randomRecipe.id}
+          id={this.state.randomRecipe.id}
+          recipe_name={this.state.randomRecipe.recipe_name}
+          category={this.state.randomRecipe.category}
+          cook_time={this.state.randomRecipe.cook_time}
+          skill_level={this.state.randomRecipe.skill_level}
+        />)
+    : "";
+
+
+
+    let recipesContainer = [];
+    for (let key in this.state.recipes) {
+      let categoryList = this.state.recipes[key];
+      // console.log("printing category list");
+      // console.log(categoryList);
+      let tiles = categoryList.map(recipe => {
+        return(
+          <RecipeTile
+            key={recipe.id}
+            id={recipe.id}
+            recipe_name={recipe.recipe_name}
+            category={recipe.category}
+            cook_time={recipe.cook_time}
+            skill_level={recipe.skill_level}
+          />
+        )
+      })
+      if (tiles.length !== 0) {
+      recipesContainer = recipesContainer.concat(
+        <HeaderEntry
+          key = {key}
+          category = {key}
         />
       )
-    })
-
+      recipesContainer = recipesContainer.concat(tiles)
+      }
+    }
+    // console.log("printing recipesContainer")
+    // console.log(recipesContainer)
     return(
       <div>
-        <LandingPage />
+      <div className="backgroundimage">
+        <div className="container">
+          <div className="main">
+            <h1>The Dirty Apron</h1>
+            <h2 className="btn-main"><Link to='/recipes/new'> add your recipe</Link></h2>
+            <button className="btn-main" onClick={this.handleRandomClick}>Random</button>
+            {randomRecipesContainer}
+
+
+          </div>
+        </div>
+      </div>
         <div className="row"><Boxes /></div>
-        <button className="random-button" onClick={this.handleRandomClick}>Random</button>
         {recipesContainer}
       </div>
     )
