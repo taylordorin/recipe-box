@@ -13,10 +13,8 @@ class NewRecipeContainer extends Component {
       recipes: [],
       recipe_name: '',
       category: '',
-      listedCategories: ['Breakfast', 'Lunch', 'Beverages', 'Appetizers', 'Soups', 'Salads',
-      'Beef', 'Poultry', 'Pork', 'Seafood',
-      'Vegetarian', 'Vegetables', 'Other', 'Desserts',
-      'Breads', 'Holidays', 'Entertaining'],
+      listedCategories: ['Breakfast', 'Lunch', 'Appetizers', 'Soups', 'Salads', 'Beef', 
+                          'Chicken', 'Pork', 'Seafood', 'Vegetables', 'Desserts', 'Other'],
       cook_time: '',
       cookTimeCategories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
       skill_level: '',
@@ -178,14 +176,14 @@ class NewRecipeContainer extends Component {
 
     let confirmedIngredients = this.state.ingredients.map((ingredient, index) => {
       return(
-        <div key={index}>
+        <div key={index} className="form-complete">
           {ingredient.quantity} {ingredient.unit} {ingredient.ingredient_name}
         </div>
     )
   })
 	  let confirmedInstructions = this.state.instructions.map((instruction, index) => {
 	    return(
-	      <div key={index}>
+	      <div key={index} className="form-complete">
 	        {instruction.step} {instruction.direction}
 	      </div>
 	    )
