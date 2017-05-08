@@ -1,7 +1,8 @@
 class Api::V1::RecipesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    category_array = ['Breakfast', 'Lunch', 'Beverages', 'Appetizers', 'Soups', 'Salads', 'Beef', 'Poultry', 'Pork', 'Seafood', 'Vegetarian', 'Vegetables', 'Other', 'Desserts', 'Breads', 'Holidays', 'Entertaining']
+    category_array = ['Breakfast', 'Lunch', 'Appetizers', 'Soups', 'Salads', 'Beef', 
+                        'Chicken', 'Pork', 'Seafood', 'Vegetables', 'Desserts', 'Other']
     output = {}
     category_array.each do |category|
       recipes = Recipe.where(user: current_user, category: category)

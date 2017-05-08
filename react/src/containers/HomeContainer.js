@@ -58,8 +58,6 @@ class HomeContainer extends Component {
         />)
     : "";
 
-
-
     let recipesContainer = [];
     for (let key in this.state.recipes) {
       let categoryList = this.state.recipes[key];
@@ -98,12 +96,10 @@ class HomeContainer extends Component {
             <h2 className="btn-main"><Link to='/recipes/new'> add your recipe</Link></h2>
             <button className="btn-main" onClick={this.handleRandomClick}>Random</button>
             {randomRecipesContainer}
-
-
           </div>
         </div>
       </div>
-        <div className="row"><Boxes /></div>
+        <div><Boxes /></div>
         {recipesContainer}
       </div>
     )

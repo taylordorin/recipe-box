@@ -3,8 +3,9 @@ import { Link } from 'react-router';
 
 const HeaderEntry = props => {
   return (
-    <h1>{props.category}</h1>
+    <div className="" id={props.category}><h1>{props.category}</h1></div>
   )
 }
 
 export default HeaderEntry;
+// <h1>{props.category}</h1>

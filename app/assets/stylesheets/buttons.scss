@@ -1,14 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);  /* <-- Just for the demo, Yes I like pretty fonts... */
 
-.square {
-  // float: left;
-  // position: relative;
+.box {
   display: inline-block;
-  width: 20%;
-  padding-bottom : 20%; /* = width for a 1:1 aspect ratio */
-  margin:1.66%;
-  background-color:#1E1E1E;
-  overflow:hidden;
+  width: 186px;
+  padding-bottom: 10%;
+  margin: 18px;
+  background-color: #1E1E1E;
+  overflow: hidden;
+  height: 17px;
 }
 
 // .content {
@@ -24,8 +23,9 @@
   height:100%;
 }
 .table-cell{
-  display:table-cell;
-  vertical-align:middle;
+  display: table-cell;
+  vertical-align: middle;
+  height: 179px;
 }
 
 
@@ -47,13 +47,40 @@
 }
 
 .img1{
-  background-image: url('https://farm3.staticflickr.com/2827/10384422264_d9c7299146.jpg');
+  background-image: image-url('breakfast_2.jpg');
 }
 .img2{
-  background-image: url('https://farm7.staticflickr.com/6217/6216951796_e50778255c.jpg');
+  background-image: image-url('lunch.jpg');
 }
 .img3{
-  background-image: url('https://farm4.staticflickr.com/3794/13893055574_3df0ab636b.jpg');
+  background-image: image-url('appetizer_2.jpg');
+}
+.img4{
+  background-image: image-url('soup.jpg');
+}
+.img5{
+  background-image: image-url('salad.jpg');
+}
+.img6{
+  background-image: image-url('BEEF.jpg');
+}
+.img7{
+  background-image: image-url('chicken.jpg');
+}
+.img8{
+  background-image: image-url('pork.jpg');
+}
+.img9{
+  background-image: image-url('seafood.jpg');
+}
+.img10{
+  background-image: image-url('vegetables.jpg');
+}
+.img11{
+  background-image: image-url('desserts.jpg');
+}
+.img12{
+  background-image: image-url('other.jpg');
 }
 
 /*  following just for the demo */
