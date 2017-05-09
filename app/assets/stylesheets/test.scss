@@ -23,13 +23,15 @@ $headlines: 'Crimson Text', serif;
 
 $burnt-orange: #bc6225;
 $olive: #51534a;
-$cream: #ebe1cf;
+$cream: #EBE7DF;
 // font-family: 'Homemade Apple', cursive;
 // font-family: 'Petit Formal Script', cursive;
 // font-family: 'Meddon', cursive;
 
 
-
+body {
+  background-color: $cream;
+}
 
 p {
   margin-top: 22px;

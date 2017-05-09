@@ -10,28 +10,24 @@ const RecipeShow = (props) => {
       borderRight: '1px solid grey',
     };
   return(
-    <div className="row">
-        <div className="recipe-container">
-          <div className="recipe-show">
-             <h1 className="heading-1">
-               {props.recipe_name}
-             </h1>
-             <ul className="recipe-list meta">
-               <li className="recipe-item" style={divStyle}>
-                 <div className="recipe-value">{props.category}</div>
-                 <div className="recipe-text">Category</div>
-               </li>
-               <li className="recipe-item" style={divStyle2}>
-                 <div className="recipe-value">{props.cook_time}</div>
-                 <div className="recipe-text">Servings</div>
-               </li>
-               <li className="recipe-item">
-                 <div className="recipe-value">{props.skill_level}</div>
-                 <div className="recipe-text">Skill Level</div>
-               </li>
-             </ul>
-          </div>
-        </div>
+    <div className="show-recipe-container">
+      <div className="show-recipe-show">
+
+         <ul className="show-recipe-list meta">
+           <li className="show-recipe-item" style={divStyle}>
+             <div className="show-recipe-value">{props.category}</div>
+             <div className="show-recipe-text">Category</div>
+           </li>
+           <li className="show-recipe-item" style={divStyle2}>
+             <div className="show-recipe-value">{props.cook_time}</div>
+             <div className="show-recipe-text">Servings</div>
+           </li>
+           <li className="show-recipe-item">
+             <div className="show-recipe-value">{props.skill_level}</div>
+             <div className="show-recipe-text">Skill Level</div>
+           </li>
+         </ul>
+      </div>
     </div>
   )
 }

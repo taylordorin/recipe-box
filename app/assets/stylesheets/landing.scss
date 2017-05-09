@@ -2,8 +2,9 @@
 
 $burnt-orange: #bc6225;
 $olive: #51534a;
-$cream: #ebe1cf;
+$cream: #EBE7DF;
 $grey: #777777;
+$dark-cream: #ebe1cf;
 
 $body: 'Raleway', sans-serif;
 $headlines: 'Crimson Text', serif;
@@ -20,18 +21,6 @@ $headlines: 'Crimson Text', serif;
   border-top: 2px solid $olive;
 }
 
-.showtopper {
-  height: 200px;
-  background-image: image-url('bakerytable.jpg');
-  background-position: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  border-bottom: 10px solid $olive;
-  border-top: 2px solid $olive;
-}
-
 .logo-img {
   width: 650px;
 }
@@ -45,7 +34,7 @@ $headlines: 'Crimson Text', serif;
 }
 
 .for-dinner {
-  background-color: $cream;
+  background-color: #ebe1cf;
   margin: none;
   padding-bottom: 36px;
 }

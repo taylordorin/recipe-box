@@ -51,6 +51,33 @@ class RecipeShowContainer extends Component {
       )
     })
 
+    let showtopper;
+      if (this.state.recipe.recipe.category == "Breakfast") {
+        showtopper = "showtopper image1"
+      } else if (this.state.recipe.recipe.category == "Lunch") {
+        showtopper = "showtopper image2"
+      } else if (this.state.recipe.recipe.category == "Appetizers") {
+        showtopper = "showtopper image3"
+      } else if (this.state.recipe.recipe.category == "Soups") {
+        showtopper = "showtopper image4"
+      } else if (this.state.recipe.recipe.category == "Salads") {
+        showtopper = "showtopper image5"
+      } else if (this.state.recipe.recipe.category == "Beef") {
+        showtopper = "showtopper image6"
+      } else if (this.state.recipe.recipe.category == "Chicken") {
+        showtopper = "showtopper image7"
+      } else if (this.state.recipe.recipe.category == "Pork") {
+        showtopper = "showtopper image8"
+      } else if (this.state.recipe.recipe.category == "Seafood") {
+        showtopper = "showtopper image9"
+      } else if (this.state.recipe.recipe.category == "Vegetables") {
+        showtopper = "showtopper image10"
+      } else if (this.state.recipe.recipe.category == "Desserts") {
+        showtopper = "showtopper image11"
+      } else {
+        showtopper = "showtopper image12"
+      }
+
     let instructionsContainer = this.state.recipe.instructions.map(instruction => {
       let onDataClick = () => {
         this.handleDataClick(instruction.id);
@@ -74,29 +101,43 @@ class RecipeShowContainer extends Component {
         />
       )
     })
+
     return(
       <div>
-        <div className="showtopper"></div>
-          <RecipeShow
+        <div className={showtopper}>
+          <div className="show-heading-1">
+            {this.state.recipe.recipe.recipe_name}
+          </div>
+        </div>
+        <div className="show-background">
+          <div className="row">
+            <div className="large-5 columns">
+              <div className="recipe-item">
+                <div className="recipe-value">Ingredients</div>
+              </div>
+                {ingredientsContainer}
+            </div>
+            <div className="large-7 columns">
+              <div className="recipe-item">
+                <div className="recipe-value">Directions</div>
+              </div>
+              {instructionsContainer}
+            </div>
+          </div>
+
+          <div className="buttonrow-show">
+            <button><a className="btn-show" href='/recipes/new'> add a recipe</a></button>
+            <button><a className="btn-show" href='/recipes'> home</a></button>
+          </div>
+
+          <div className="footer">
+            <RecipeShow
             id={this.state.recipe.recipe.id}
             recipe_name={this.state.recipe.recipe.recipe_name}
             category={this.state.recipe.recipe.category}
             cook_time={this.state.recipe.recipe.cook_time}
             skill_level={this.state.recipe.recipe.skill_level}
-           />
-        <div className="row">
-           <div className="large-5 columns">
-            <div className="recipe-item">
-              <div className="recipe-value">Ingredients</div>
-            </div>
-              {ingredientsContainer}
-            <div><BackButton /></div>
-          </div>
-          <div className="large-7 columns">
-            <div className="recipe-item">
-             <div className="recipe-value">Directions</div>
-            </div>
-          {instructionsContainer}
+            />
           </div>
         </div>
       </div>
