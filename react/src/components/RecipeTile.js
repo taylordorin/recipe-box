@@ -12,9 +12,9 @@ const RecipeTile = ({ id, recipe_name, category, cook_time, skill_level }) => {
   return(
     <div className="recipe-container">
       <div className="recipe-content">
-         <h1 className="heading-1">
-           <Link to={`/recipes/${id}`}>{recipe_name}</Link>
-         </h1>
+         <div>
+           <a className="heading-1" href={`/recipes/${id}`}>{recipe_name}</a>
+           </div>
          <ul className="recipe-list meta">
            <li className="recipe-item" style={divStyle}>
              <div className="recipe-value">{category}</div>

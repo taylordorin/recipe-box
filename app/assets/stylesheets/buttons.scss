@@ -1,14 +1,23 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:400,900);  /* <-- Just for the demo, Yes I like pretty fonts... */
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Lora|Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
+
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #ebe1cf;
+$grey: #777777;
+
+$body: 'Raleway', sans-serif;
+$headlines: 'Crimson Text', serif;
+
 
 .box {
-  display: inline-block;
-  width: 186px;
-  padding-bottom: 10%;
-  margin: 18px;
-  background-color: #1E1E1E;
-  overflow: hidden;
-  height: 17px;
-}
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    margin: 10px 13px;
+    background-color: #1E1E1E;
+    overflow: hidden;
+  }
+
 
 // .content {
 //   position:absolute;
@@ -25,9 +34,16 @@
 .table-cell{
   display: table-cell;
   vertical-align: middle;
-  height: 179px;
+  height: 130px;
 }
 
+.recipe-header {
+  font-family: $headlines;
+  text-transform: uppercase;
+  color: $olive;
+  font-size: 3rem;
+  padding-top: 25px;
+}
 
 /*  For responsive images */
 
