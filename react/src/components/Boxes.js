@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 function makeDiv(categoryName, imageName){
   let anchor = "#" + categoryName;
   let divEntry =
-    <div className={imageName}><a href={anchor}>
+    <div className={imageName}><a className="box-text" href={anchor}>
       <div className="content">
         <div className="table">
           <div className="table-cell">

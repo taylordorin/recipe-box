@@ -1,6 +1,11 @@
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #ebe1cf;
+$grey: #777777;
+
 .scroll {
   opacity: 0.3;
-  background-color: aqua;
+  background-color: $olive;
   width: 40px;
   height: 40px;
   position: fixed;
@@ -14,12 +19,12 @@
   }
 
 }
-
-.arrow-up {
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -9px;
-  margin-left: -5px;
-}
+// 
+// .arrow-up {
+//   color: white;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   margin-top: -9px;
+//   margin-left: -5px;
+// }

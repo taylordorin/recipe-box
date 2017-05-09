@@ -27,7 +27,7 @@ class ScrollButton extends Component {
     return(
       <div>
         <button title='Back to top' className='scroll' onClick={ () => { this.scrollToTop(); }}>
-          <span className='arrow-up'>^</span>
+          <i className="fa fa-arrow-up"></i>
         </button>
       </div>
     )
