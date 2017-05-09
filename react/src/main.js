@@ -10,3 +10,12 @@ $(function() {
     document.getElementById('app')
   );
 });
+
+if(document.getElementById('scroll-button')){
+  $(function() {
+    ReactDOM.render(
+      <ScrollButton />,
+      document.getElementById('scroll-button')
+    );
+  });
+}

@@ -7,7 +7,7 @@ class IngredientFormContainer extends React.Component {
     this.state = {
       errors: {},
       unit: '',
-      unitCategories: ["ea.", "tsp.", "tbsp.", "cup", "oz.", "lb.", "fl. oz.", "pt.", "qt."],
+      unitCategories: ["ea.", "tsp.", "tbsp.", "cup", "oz.", "lb.", "small", "medium", "large", "pack", "fl. oz.", "pt.", "qt."],
       quantity: '',
 			ingredient_name: ''
     };

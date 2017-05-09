@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Lora|Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Lora|Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway|Oswald);
 
 $burnt-orange: #bc6225;
 $olive: #51534a;
@@ -35,6 +35,15 @@ $headlines: 'Crimson Text', serif;
   display: table-cell;
   vertical-align: middle;
   height: 130px;
+  opacity: 0;
+}
+.table-cell:hover{
+  color: #ffffff;
+  display: table-cell;
+  vertical-align: middle;
+  height: 130px;
+  opacity: 100;
+  background: rgba(81, 83, 74, 0.8)
 }
 
 .recipe-header {
@@ -60,6 +69,15 @@ $headlines: 'Crimson Text', serif;
   background-repeat:no-repeat;
   background-size:cover; /* you change this to "contain" if you don't want the images to be cropped */
   color:#fff;
+}
+
+a.box-text{
+  font-family: $body;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
 }
 
 .img1{
