@@ -1,0 +1,89 @@
+
+@import url(https://fonts.googleapis.com/css?family=Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
+$container-width: 750px;
+$container-height: 300px;
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$black: #1c2224;
+$blue: #37BECC;
+$dark-grey: #1c1c1c;
+$green: #84CE15;
+$grey: #777777;
+$light-blue: #E5F3F4;
+
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #ebe1cf;
+// font-family: 'Homemade Apple', cursive;
+// font-family: 'Petit Formal Script', cursive;
+// font-family: 'Meddon', cursive;
+
+
+.random-recipe-content {
+  border: 1px white solid;
+  margin: auto;
+  width: 520px;
+  height: 88%;
+  right: 0;
+  top: 4px;
+  padding: 1.25rem;
+  padding-top: 10px;
+  margin-top: 35px;
+  background: rgba(204, 204, 204, 0.2);
+}
+
+.random-recipe-container {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+}
+
+a.random-heading-1 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1 * $base-line-height 0;
+}
+a.random-heading-1:hover {
+  color: $burnt-orange;
+}
+
+.random-recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  &.meta {
+    > .random-recipe-item {
+      display: inline-block;
+      padding-right: 1.15rem;
+    }
+  }
+}
+
+.random-recipe-item {
+  padding: 0 1rem;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  > .random-recipe-value {
+    font-size: 1.333rem;
+    line-height: $base-line-height * 2;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  > .random-recipe-text {
+    font-size: 0.75rem;
+    line-height: $base-line-height;
+    color: #ffffff;
+  }
+
+  & + & {
+    border-left: 1px solid recipe-color('border');
+  }
+}

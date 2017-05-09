@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import RecipeTile from '../components/RecipeTile'
 import Boxes from '../components/Boxes';
 import HeaderEntry from '../components/HeaderEntry';
+import ScrollButton from '../components/ScrollButton';
+import RandomRecipeTile from '../components/RandomRecipeTile';
 
 class HomeContainer extends Component {
   constructor(props) {
@@ -48,7 +50,7 @@ class HomeContainer extends Component {
     console.log(this.state.randomRecipe);
 
     let randomRecipesContainer = (this.state.randomRecipe)
-    ? (<RecipeTile
+    ? (<RandomRecipeTile
           key={this.state.randomRecipe.id}
           id={this.state.randomRecipe.id}
           recipe_name={this.state.randomRecipe.recipe_name}
@@ -89,18 +91,38 @@ class HomeContainer extends Component {
     // console.log(recipesContainer)
     return(
       <div>
-      <div className="backgroundimage">
-        <div className="container">
-          <div className="main">
-            <h1>The Dirty Apron</h1>
-            <h2 className="btn-main"><Link to='/recipes/new'> add your recipe</Link></h2>
-            <button className="btn-main" onClick={this.handleRandomClick}>Random</button>
-            {randomRecipesContainer}
+        <div className="backgroundimage">
+
+            <div className="main">
+              <img className="logo-img" src={assetHelper["logo.png"]}></img>
+            </div>
+
+            <div className="buttonrow">
+              <button><a className="btn-main" href='/recipes/new'> add your recipe</a></button>
+              <button className="btn-main" onClick={this.handleRandomClick}>Random</button>
+            </div>
+
+            <div>
+              {randomRecipesContainer}
+            </div>
           </div>
-        </div>
-      </div>
-        <div><Boxes /></div>
-        {recipesContainer}
+          <div className="for-dinner">
+            <div className='recipe-header'>
+              What''s for Dinner?
+            </div >
+            <div className='line-break'>
+              <img className="linebrk-img" src={assetHelper["linebrk.png"]}></img>
+            </div>
+              <div><Boxes /></div>
+            </div>
+            <div className="measurement-container">
+              <div>Measurement Information Goes Here</div>
+            </div>
+            {recipesContainer}
+        <ScrollButton
+          scrollStepInPx="50"
+          delayInMs="16.66"
+        />
       </div>
     )
   }

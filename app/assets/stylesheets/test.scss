@@ -7,7 +7,7 @@
 font-family: 'Raleway', sans-serif;
 font-family: 'Playfair Display', serif; */
 
-@import url(https://fonts.googleapis.com/css?family=Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Lora|Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
 $container-width: 750px;
 $container-height: 300px;
 $base-font-size: 1rem;
@@ -18,95 +18,18 @@ $dark-grey: #1c1c1c;
 $green: #84CE15;
 $grey: #777777;
 $light-blue: #E5F3F4;
+$body: 'Raleway', sans-serif;
+$headlines: 'Crimson Text', serif;
+
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #ebe1cf;
 // font-family: 'Homemade Apple', cursive;
 // font-family: 'Petit Formal Script', cursive;
 // font-family: 'Meddon', cursive;
 
 
-.recipe-container {
-  font-family: Raleway, sans-serif;
-  font-weight: 400;
-}
 
-.ingredient-show {
-  font-family: Raleway, sans-serif;
-  font-weight: 400;
-  height: 100%;
-  right: 0;
-  top: 0;
-}
-
-.recipe-show {
-  font-family: Raleway, sans-serif;
-  font-weight: 400;
-  height: 100%;
-  right: 0;
-  top: 0;
-  padding-top: $base-line-height;
-  padding-bottom: $base-line-height * 2;
-}
-
-.recipe-content {
-  font-family: Raleway, sans-serif;
-  font-weight: 400;
-  margin-left: 50%;
-  width: 50%;
-  height: 100%;
-  right: 0;
-  top: 0;
-  padding: $base-line-height;
-  overflow-y: scroll;
-}
-.scroll-box {
-    height: 400px;
-    overflow-y: scroll;
-}
-
-.heading-1 {
-  font-size: 1.778rem;
-  line-height: $base-line-height;
-  font-weight: 200;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 1 * $base-line-height 0;
-}
-
-
-.recipe-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-
-  &.meta {
-    > .recipe-item {
-      display: inline-block;
-      padding-right: 2rem;
-    }
-  }
-}
-
-.recipe-item {
-  padding: 0 1rem;
-
-  &:first-child {
-    padding-left: 0;
-  }
-
-  > .recipe-value {
-    font-size: 1.333rem;
-    line-height: $base-line-height * 2;
-    font-weight: bold;
-  }
-
-  > .recipe-text {
-    font-size: 0.75rem;
-    line-height: $base-line-height;
-  }
-
-  & + & {
-    border-left: 1px solid recipe-color('border');
-  }
-}
 
 p {
   margin-top: 22px;
@@ -114,7 +37,7 @@ p {
   margin-left: 20px;
   color: $black;
   float: none;
-  font-family: 'Raleway', sans-serif;
+  font-family: $body;
   width: 90%;
   text-align: left;
 }
@@ -315,22 +238,4 @@ div.openbutton {
 
 .btn:hover {
   opacity: 1;
-}
-
-.buttonrow {
-  margin-top: 280px;
-}
-
-.btn-main {
-  background-color: #FE8B05;
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-weight: bolder;
-  font-size: 18px;
-  letter-spacing: 2.3px;
-  padding: 16px 30px;
-  text-transform: uppercase;
-  width: 330px;
-  margin: auto;
-  margin-top: 24px;
 }

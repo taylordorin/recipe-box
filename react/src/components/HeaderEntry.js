@@ -3,7 +3,12 @@ import { Link } from 'react-router';
 
 const HeaderEntry = props => {
   return (
-    <div className="" id={props.category}><h1>{props.category}</h1></div>
+    <div>
+      <div className="recipe-header" id={props.category}>{props.category}</div>
+      <div className='line-break'>
+        <img className="linebrk-img" src={assetHelper["linebrk.png"]}></img>
+      </div>
+    </div>
   )
 }
 

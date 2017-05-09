@@ -1,0 +1,251 @@
+/* YOUR STYLING GOES HERE. */
+/*#EFEECC beige
+#FE8B05 orange
+#FE0557 pink
+#400403 brown
+#0AABBA aqua*
+font-family: 'Raleway', sans-serif;
+font-family: 'Playfair Display', serif; */
+
+@import url(https://fonts.googleapis.com/css?family=Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
+$container-width: 750px;
+$container-height: 300px;
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$black: #1c2224;
+$blue: #37BECC;
+$dark-grey: #1c1c1c;
+$green: #84CE15;
+$grey: #777777;
+$light-blue: #E5F3F4;
+
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #ebe1cf;
+// font-family: 'Homemade Apple', cursive;
+// font-family: 'Petit Formal Script', cursive;
+// font-family: 'Meddon', cursive;
+/* YOUR STYLING GOES HERE. */
+/*#EFEECC beige
+#FE8B05 orange
+#FE0557 pink
+#400403 brown
+#0AABBA aqua*
+font-family: 'Raleway', sans-serif;
+font-family: 'Playfair Display', serif; */
+
+@import url(https://fonts.googleapis.com/css?family=Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
+$container-width: 750px;
+$container-height: 300px;
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$black: #1c2224;
+$blue: #37BECC;
+$dark-grey: #1c1c1c;
+$green: #84CE15;
+$grey: #777777;
+$light-blue: #E5F3F4;
+
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #ebe1cf;
+// font-family: 'Homemade Apple', cursive;
+// font-family: 'Petit Formal Script', cursive;
+// font-family: 'Meddon', cursive;
+
+// .random-recipe-content {
+//   font-family: Raleway, sans-serif;
+//   font-weight: 400;
+//   margin: auto;
+//   width: 50%;
+//   height: 100%;
+//   right: 0;
+//   top: 0;
+//   padding: $base-line-height;
+//   padding: 3rem;
+// }
+.recipe-container {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+}
+
+.ingredient-show {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.recipe-show {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding-top: $base-line-height;
+  padding-bottom: $base-line-height * 2;
+}
+
+.recipe-content {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  margin: auto;
+  width: 65%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding: $base-line-height;
+  text-align: left;
+}
+
+.heading-1 {
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: .5rem 0;
+  float: left;
+  width: 50%;
+  text-align: right;
+  padding-right: 18px;
+}
+
+a.heading-1 {
+  color: $burnt-orange;
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  &.meta {
+    > .recipe-item {
+      display: inline-block;
+      padding-right: 1.15rem;
+    }
+  }
+}
+
+.recipe-item {
+  padding: 0 1rem;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  > .recipe-value {
+    font-size: 1.333rem;
+    line-height: $base-line-height * 2;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  > .recipe-text {
+    font-size: 0.75rem;
+    line-height: $base-line-height;
+    text-align: left;
+  }
+
+  & + & {
+    border-left: 1px solid recipe-color('border');
+  }
+}
+
+//
+// .random-recipe-content {
+//   font-family: Raleway, sans-serif;
+//   font-weight: 400;
+//   margin: auto;
+//   width: 50%;
+//   height: 100%;
+//   right: 0;
+//   top: 0;
+//   padding: $base-line-height;
+// }
+// .recipe-container {
+//   font-family: Raleway, sans-serif;
+//   font-weight: 400;
+// }
+//
+// .ingredient-show {
+//   font-family: Raleway, sans-serif;
+//   font-weight: 400;
+//   height: 100%;
+//   right: 0;
+//   top: 0;
+// }
+//
+// .recipe-show {
+//   font-family: Raleway, sans-serif;
+//   font-weight: 400;
+//   height: 100%;
+//   right: 0;
+//   top: 0;
+//   padding-top: $base-line-height;
+//   padding-bottom: $base-line-height * 2;
+// }
+//
+// .recipe-content {
+//   font-family: Raleway, sans-serif;
+//   font-weight: 400;
+//   margin-left: 50%;
+//   width: 50%;
+//   height: 100%;
+//   right: 0;
+//   top: 0;
+//   padding: $base-line-height;
+//
+// }
+// // .scroll-box {
+// //     height: 400px;
+// //     overflow-y: scroll;
+// // }
+//
+// .heading-1 {
+//   font-size: 1.778rem;
+//   line-height: $base-line-height;
+//   font-weight: 200;
+//   text-transform: uppercase;
+//   letter-spacing: 1px;
+//   margin: 1 * $base-line-height 0;
+// }
+//
+//
+// .recipe-list {
+//   list-style-type: none;
+//   padding: 0;
+//   margin: 0;
+//
+//   &.meta {
+//     > .recipe-item {
+//       display: inline-block;
+//       padding-right: 2rem;
+//     }
+//   }
+// }
+//
+// .recipe-item {
+//   padding: 0 1rem;
+//
+//   &:first-child {
+//     padding-left: 0;
+//   }
+//
+//   > .recipe-value {
+//     font-size: 1.333rem;
+//     line-height: $base-line-height * 2;
+//     font-weight: bold;
+//   }
+//
+//   > .recipe-text {
+//     font-size: 0.75rem;
+//     line-height: $base-line-height;
+//   }
+//
+//   & + & {
+//     border-left: 1px solid recipe-color('border');
+//   }
+// }

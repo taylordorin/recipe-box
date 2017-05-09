@@ -8,11 +8,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # resources :users do
-      #   resources :recipes
-      # end
       resources :randoms, only: [:index]
       resources :recipes #, only: [:index, :show, :create]
+
       resources :recipes do
         resources :ingredients
         resources :directions

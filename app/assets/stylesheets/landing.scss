@@ -1,19 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Lora|Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
 
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #ebe1cf;
 $grey: #777777;
 
-.backgroundimage {
+$body: 'Raleway', sans-serif;
+$headlines: 'Crimson Text', serif;
 
-  height: 800px;
-  background-image: image-url('landing-page-apron.jpg');
+.backgroundimage {
+  height: 600px;
+  background-image: image-url('landing-page-2.jpg');
   background-position: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
   padding: 0;
-  border-bottom: 2px solid $grey;
-  border-top: 2px solid $grey;
+  border-bottom: 20px solid $burnt-orange;
+  border-top: 2px solid $olive;
 }
-
 
 .showtopper {
   height: 200px;
@@ -23,6 +28,80 @@ $grey: #777777;
   background-size: cover;
   margin: 0;
   padding: 0;
-  border-bottom: 2px solid $grey;
-  border-top: 2px solid $grey;
+  border-bottom: 10px solid $olive;
+  border-top: 2px solid $olive;
+}
+
+.logo-img {
+  width: 650px;
+}
+
+.linebrk-img {
+  width: 200px;
+}
+
+.line-break {
+  margin: 10px 0 20px 0;
+}
+
+.for-dinner {
+  background-color: $cream;
+  margin: none;
+  padding-bottom: 36px;
+}
+
+.measurement-container {
+  background-color: $olive;
+  margin: none;
+  padding-bottom: 36px;
+}
+
+.buttonrow {
+  margin-top: 206px;
+}
+
+.btn-main {
+  border: 1px solid $burnt-orange;
+  color: #fff;
+  font-family: $body;
+  font-weight: bolder;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 16px 30px;
+  text-transform: uppercase;
+  width: 218px;
+  margin: auto;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+}
+a.btn-main{
+  color: #ffffff;
+  border: 1px solid $burnt-orange;
+  color: #fff;
+  font-family: $body;
+  font-weight: bolder;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 16px 30px;
+  text-transform: uppercase;
+  width: 218px;
+  margin: auto;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.btn-main:hover {
+  background-color: $burnt-orange;
+  border: 1px solid #ffffff;
+}
+
+.wrapper {
+  text-align: center;
+  display: inline-block;
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
 }
