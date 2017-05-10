@@ -13,7 +13,7 @@ class NewRecipeContainer extends Component {
       recipes: [],
       recipe_name: '',
       category: '',
-      listedCategories: ['Breakfast', 'Lunch', 'Appetizers', 'Soups', 'Salads', 'Beef', 
+      listedCategories: ['Breakfast', 'Lunch', 'Appetizers', 'Soups', 'Salads', 'Beef',
                           'Chicken', 'Pork', 'Seafood', 'Vegetables', 'Desserts', 'Other'],
       cook_time: '',
       cookTimeCategories: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -32,6 +32,8 @@ class NewRecipeContainer extends Component {
 		this.addIngredient = this.addIngredient.bind(this);
 		this.addInstruction = this.addInstruction.bind(this);
 		this.handleGoBack = this.handleGoBack.bind(this);
+    this.handleDeleteIngredient = this.handleDeleteIngredient.bind(this);
+    this.handleDeleteInstruction = this.handleDeleteInstruction.bind(this);
 
     this.validateNameChange = this.validateNameChange.bind(this);
     this.validateCategoryChange = this.validateCategoryChange.bind(this);
@@ -164,6 +166,17 @@ class NewRecipeContainer extends Component {
     });
   }
 
+  handleDeleteIngredient(index){
+    let newIngredients = this.state.ingredients;
+    newIngredients.splice(index, 1);
+    this.setState({ ingredients: newIngredients });
+  }
+  handleDeleteInstruction(index){
+    let newInstruction = this.state.instructions;
+    newInstruction.splice(index, 1);
+    this.setState({ instructions: newInstruction });
+  }
+
   render() {
     let errorDiv;
     let errorItems;
@@ -177,6 +190,7 @@ class NewRecipeContainer extends Component {
     let confirmedIngredients = this.state.ingredients.map((ingredient, index) => {
       return(
         <div key={index} className="form-complete">
+        <button className="btn-delete" onClick={(index) => this.handleDeleteIngredient(index)}>X</button>
           {ingredient.quantity} {ingredient.unit} {ingredient.ingredient_name}
         </div>
     )
@@ -184,55 +198,69 @@ class NewRecipeContainer extends Component {
 	  let confirmedInstructions = this.state.instructions.map((instruction, index) => {
 	    return(
 	      <div key={index} className="form-complete">
+        <button className="btn-delete" onClick={(index) => this.handleDeleteInstruction(index)}>X</button>
 	        {instruction.step} {instruction.direction}
 	      </div>
 	    )
     })
+
+
       return (
-      <div className="row">
-        <form onSubmit={this.handleSubmit} className = "callout-box" >
-        <h1> Recipes </h1>
-        {errorDiv}
-        <RecipeFormTile
-          recipeContent = {this.state.recipe_name}
-          recipeLabel = 'Recipe Name:'
-          recipeName = 'recipe_name'
-          recipeHandlerFunction = {this.handleNameChange}
+      <div className="backgroundform">
+        <div className="row">
+          <form onSubmit={this.handleSubmit}  >
+            <div className = "callout-box">
+              <div className="show-heading-2"> ADD YOUR RECIPE </div>
+              {errorDiv}
+              <RecipeFormTile
+                recipeContent = {this.state.recipe_name}
+                recipeLabel = 'Recipe Name:'
+                recipeName = 'recipe_name'
+                recipeHandlerFunction = {this.handleNameChange}
 
-          servingHandlerFunction = {this.handleTimeChange}
-          servingLabel = 'Serves:'
-          servingName = 'cook_time'
-          servingsOptions = {this.state.cookTimeCategories}
-          servingSelectedOption = {this.state.cook_time}
+                servingHandlerFunction = {this.handleTimeChange}
+                servingLabel = 'Serves:'
+                servingName = 'cook_time'
+                servingsOptions = {this.state.cookTimeCategories}
+                servingSelectedOption = {this.state.cook_time}
 
-          categoryHandlerFunction = {this.handleCategoryChange}
-          categoryLabel = 'Category:'
-          categoryName = 'category'
-          categoryOptions = {this.state.listedCategories}
-          categorySelectedOption = {this.state.category}
+                categoryHandlerFunction = {this.handleCategoryChange}
+                categoryLabel = 'Category:'
+                categoryName = 'category'
+                categoryOptions = {this.state.listedCategories}
+                categorySelectedOption = {this.state.category}
 
-          skillHandlerFunction = {this.handleSkillChange}
-          skillLabel = 'Skill Level:'
-          skillName = 'skill_level'
-          skillOptions = {this.state.skillCategories}
-          skillSelectedOption = {this.state.skill_level}
-        />
+                skillHandlerFunction = {this.handleSkillChange}
+                skillLabel = 'Skill Level:'
+                skillName = 'skill_level'
+                skillOptions = {this.state.skillCategories}
+                skillSelectedOption = {this.state.skill_level}
+              />
 
-        <h3>Ingredients</h3>
-        {confirmedIngredients}
-        <IngredientFormContainer
-          clear = {this.handleClearForm}
-          addIngredient = {this.addIngredient}
-        />
+              <div className="form-heading">Ingredients</div>
+              {confirmedIngredients}
+              <IngredientFormContainer
+                clear = {this.handleClearForm}
+                addIngredient = {this.addIngredient}
+              />
 
-        <h3 className="direction-heading">Directions</h3>
-        {confirmedInstructions}
-        <DirectionFormContainer
-          clear = {this.handleClearForm}
-					addInstruction = {this.addInstruction}
-        />
-        <input type="submit" className="recipe-button" value="Submit "/>
-	      </form>
+              <div className="direction-heading">Directions</div>
+              {confirmedInstructions}
+              <DirectionFormContainer
+                clear = {this.handleClearForm}
+      					addInstruction = {this.addInstruction}
+              />
+            </div>
+
+            <div className="buttonrow-form">
+              <button type="submit" className="btn-show">Submit</button>
+              <button><a className="btn-show" href='/recipes'> home</a></button>
+            </div>
+
+  	      </form>
+        </div>
+
+        <div className="footer"><img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img></div>
       </div >
     )
   }

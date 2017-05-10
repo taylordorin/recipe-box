@@ -23,46 +23,20 @@ $headlines: 'Crimson Text', serif;
 
 $burnt-orange: #bc6225;
 $olive: #51534a;
-$cream: #ebe1cf;
+$cream: #EBE7DF;
 // font-family: 'Homemade Apple', cursive;
 // font-family: 'Petit Formal Script', cursive;
 // font-family: 'Meddon', cursive;
 
 
-
-
-p {
-  margin-top: 22px;
-  font-size: 18px;
-  margin-left: 20px;
-  color: $black;
-  float: none;
-  font-family: $body;
-  width: 90%;
-  text-align: left;
-}
-
-.callout-box {
-  position: relative;
-  padding: 1rem;
-  border: 1px solid rgba(10, 10, 10, 0.25);
-  border-radius: 0;
-  background-color: white;
-  color: #0a0a0a;
-  padding-bottom: 3.5rem;
-}
-
-
-p.hidden{
-  opacity: 0.35;
-
-  // display: none;
-}
-
 body {
+  background-color: $cream;
   margin: 0;
   padding: 0;
+  font-feature-settings: "liga" 0;
 }
+
+
 
 
 .main h1 {
@@ -137,7 +111,7 @@ form {
 }
 
 .top-bar, .top-bar ul {
-  background-color: whitesmoke;
+  background-color: $olive;
 }
 // h1 {
 //   color: #1c1c1c;
@@ -145,22 +119,12 @@ form {
 //   font-family: 'Raleway', sans-serif;
 // }
 
-li.menu-text {
+menu-text {
   font-family: 'Meddon', cursive;
   color: $dark-grey;
   font-size: 1.2em;
 }
 
-.form-complete {
-  font-family: 'Playfair Display', serif;
-  text-align: left;
-}
-
-label {
-  color: #FE8B05;
-  font-family: 'Playfair Display', serif;
-  text-align: left;
-}
 
 // BUTTONS
 .recipe-button {
@@ -177,24 +141,6 @@ label {
   float: left;
 }
 
-.form-button {
-  appearance: none;
-  background-color: #0AABBA;
-  color: white;
-  border: none;
-  float: right;
-  height: $base-line-height * 2;
-  padding: 0 1rem;
-  border-radius: $base-line-height;
-  font-size: 0.75rem;
-  line-height: $base-line-height;
-  padding-right: $base-line-height;
-}
-
-.form-button:hover {
-  background-color: $grey;
-}
-
 
 div.openbutton {
   font-family: Raleway, sans-serif;
@@ -207,12 +153,12 @@ div.openbutton {
 }
 .plus {
   padding: 4px;
-  background-color: #0AABBA;
+  background-color: $burnt-orange;
   color: white;
 }
 .minus {
-  background-color: $green;
-  color: black;
+  background-color: $olive;
+  color: $burnt-orange;
   padding: 6px;
 }
 

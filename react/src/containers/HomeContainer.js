@@ -92,37 +92,42 @@ class HomeContainer extends Component {
     return(
       <div>
         <div className="backgroundimage">
-
-            <div className="main">
-              <img className="logo-img" src={assetHelper["logo.png"]}></img>
-            </div>
-
-            <div className="buttonrow">
-              <button><a className="btn-main" href='/recipes/new'> add your recipe</a></button>
-              <button className="btn-main" onClick={this.handleRandomClick}>Random</button>
-            </div>
-
-            <div>
-              {randomRecipesContainer}
-            </div>
+          <div className="main">
+            <img className="logo-img" src={assetHelper["logo.png"]}></img>
           </div>
-          <div className="for-dinner">
-            <div className='recipe-header'>
-              What''s for Dinner?
-            </div >
-            <div className='line-break'>
-              <img className="linebrk-img" src={assetHelper["linebrk.png"]}></img>
-            </div>
-              <div><Boxes /></div>
-            </div>
-            <div className="measurement-container">
-              <div>Measurement Information Goes Here</div>
-            </div>
+
+          <div className="buttonrow">
+            <button><a className="btn-main" href='/recipes/new'> add your recipe</a></button>
+            <button className="btn-main" onClick={this.handleRandomClick}>Random</button>
+          </div>
+
+          <div>
+            {randomRecipesContainer}
+          </div>
+        </div>
+        <div className="for-dinner">
+          <div className='recipe-header'>
+            What's for Dinner?
+          </div >
+          <div className='line-break'>
+            <img className="linebrk-img" src={assetHelper["linebrk.png"]}></img>
+          </div>
+            <div><Boxes /></div>
+          </div>
+          <div className="measurement-container">
+          <img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img>
+            <div></div>
+          </div>
+          <div className="show-background">
             {recipesContainer}
-        <ScrollButton
-          scrollStepInPx="50"
-          delayInMs="16.66"
-        />
+            <ScrollButton
+              scrollStepInPx="50"
+              delayInMs="16.66"
+            />
+          </div>
+          <div className="footer">
+          <img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img>
+          </div>
       </div>
     )
   }
