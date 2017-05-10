@@ -97,6 +97,107 @@ $headlines: 'Crimson Text', serif;
 //   color: $burnt-orange;
 // }
 //
+.ingredient-container {
+  text-align:left;
+  margin-left: 18px;
+  font-size: 1.1rem;
+}
+.instruction-container {
+  text-align:left;
+  margin-left: 18px;
+  font-size: 1.1rem;
+}
+
+.ingredient-box {
+
+  margin-left: 25px;
+}
+
+.ingredient-headline {
+  margin-left: 23px;
+
+}
+
+.ingredient-item {
+  padding: 0 1rem;
+
+  &:first-child {
+    padding-left: 0px;
+    margin-bottom: 23px;
+  }
+
+  > .ingredient-value {
+    line-height: $base-line-height * 2;
+    text-align: left;
+    margin-left: 19px;
+    margin-top: 50px;
+    font-family: $headlines;
+    font-size: 2.3rem;
+    color: $olive;
+  }
+
+  & + & {
+    border-left: 1px solid recipe-color('border');
+  }
+}
+
+.direction-item {
+  padding: 0 1rem;
+
+  &:first-child {
+    padding-left: 17px;
+  }
+
+  > .direction-value {
+    line-height: $base-line-height * 2;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 50px;
+    font-family: $headlines;
+    font-size: 2.3rem;
+    color: $olive;
+  }
+
+  & + & {
+    border-left: 1px solid recipe-color('border');
+  }
+}
+
+
+.ingredient {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.ingredient-text {
+  font-size: 1.2rem;
+
+}
+
+p {
+  margin-top: 22px;
+  font-size: 1.2rem;
+  color: $black;
+  float: none;
+  font-family: $body;
+  width: 90%;
+  text-align: left;
+}
+
+p.hidden{
+  opacity: 0.35;
+  // display: none;
+}
+
+
+.ingredient-show {
+  font-family: Raleway, sans-serif;
+  font-weight: 400;
+  height: 100%;
+  right: 0;
+  top: 0;
+  color: $olive;
+  display: inline-block;
+}
 
 .show-recipe-container {
   font-family: Raleway, sans-serif;

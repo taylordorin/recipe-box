@@ -107,7 +107,7 @@ class HomeContainer extends Component {
         </div>
         <div className="for-dinner">
           <div className='recipe-header'>
-            What''s for Dinner?
+            What's for Dinner?
           </div >
           <div className='line-break'>
             <img className="linebrk-img" src={assetHelper["linebrk.png"]}></img>
@@ -115,7 +115,7 @@ class HomeContainer extends Component {
             <div><Boxes /></div>
           </div>
           <div className="measurement-container">
-            <div>Measurement Information Goes Here</div>
+            <div></div>
           </div>
           <div className="show-background">
             {recipesContainer}

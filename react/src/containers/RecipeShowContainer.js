@@ -109,21 +109,31 @@ class RecipeShowContainer extends Component {
             {this.state.recipe.recipe.recipe_name}
           </div>
         </div>
+
         <div className="show-background">
+
           <div className="row">
-            <div className="large-5 columns">
-              <div className="recipe-item">
-                <div className="recipe-value">Ingredients</div>
-              </div>
-                {ingredientsContainer}
-            </div>
-            <div className="large-7 columns">
-              <div className="recipe-item">
-                <div className="recipe-value">Directions</div>
-              </div>
-              {instructionsContainer}
+            <div className="large-4 columns">
+
+                <div className="ingredient-item">
+                  <div className="ingredient-value">Ingredients</div>
+                </div>
+              {ingredientsContainer}
+
+          </div>
+
+
+            <div className="large-8 columns">
+
+                <div className="direction-item">
+                  <div className="direction-value">Directions</div>
+                </div>
+                {instructionsContainer}
+
             </div>
           </div>
+
+
 
           <div className="buttonrow-show">
             <button><a className="btn-show" href='/recipes/new'> add a recipe</a></button>

@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text|Lora|Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
+$container-width: 750px;
+$container-height: 300px;
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$black: #1c2224;
+$blue: #37BECC;
+$dark-grey: #1c1c1c;
+$green: #84CE15;
+$grey: #777777;
+$light-blue: #E5F3F4;
+$body: 'Raleway', sans-serif;
+$headlines: 'Crimson Text', serif;
+
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #EBE7DF;
+
+.btn-delete {
+  background-color: #bc6225;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  /* width: 19px; */
+  margin: auto;
+  margin-top: 7px;
+  /* margin-left: 20px; */
+  margin-right: 13px;
+  display: inline-block;
+}
+// a.btn-delete{
+//   color: #ffffff;
+//   border: 1px solid $burnt-orange;
+//   color: #fff;
+//   font-family: $body;
+//   font-weight: bolder;
+//   font-size: 14px;
+//   letter-spacing: 2px;
+//   padding: 16px 30px;
+//   text-transform: uppercase;
+//   width: 30px;
+//   margin: auto;
+//   margin-top: 0px;
+//   margin-left: 20px;
+//   margin-right: 20px;
+// }
+
+.btn-delete:hover {
+  background-color: $burnt-orange;
+  border: 1px solid #ffffff;
+}

@@ -33,17 +33,6 @@ body {
   background-color: $cream;
 }
 
-p {
-  margin-top: 22px;
-  font-size: 18px;
-  margin-left: 20px;
-  color: $black;
-  float: none;
-  font-family: $body;
-  width: 90%;
-  text-align: left;
-}
-
 .callout-box {
   position: relative;
   padding: 1rem;
@@ -52,13 +41,6 @@ p {
   background-color: white;
   color: #0a0a0a;
   padding-bottom: 3.5rem;
-}
-
-
-p.hidden{
-  opacity: 0.35;
-
-  // display: none;
 }
 
 body {
@@ -209,12 +191,12 @@ div.openbutton {
 }
 .plus {
   padding: 4px;
-  background-color: #0AABBA;
+  background-color: $burnt-orange;
   color: white;
 }
 .minus {
-  background-color: $green;
-  color: black;
+  background-color: $olive;
+  color: $burnt-orange;
   padding: 6px;
 }
 
