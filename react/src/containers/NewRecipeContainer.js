@@ -203,51 +203,64 @@ class NewRecipeContainer extends Component {
 	      </div>
 	    )
     })
+
+
       return (
-      <div className="row">
-        <form onSubmit={this.handleSubmit} className = "callout-box" >
-        <h1> Recipes </h1>
-        {errorDiv}
-        <RecipeFormTile
-          recipeContent = {this.state.recipe_name}
-          recipeLabel = 'Recipe Name:'
-          recipeName = 'recipe_name'
-          recipeHandlerFunction = {this.handleNameChange}
+      <div className="backgroundform">
+        <div className="row">
+          <form onSubmit={this.handleSubmit}  >
+            <div className = "callout-box">
+              <div className="show-heading-2"> ADD YOUR RECIPE </div>
+              {errorDiv}
+              <RecipeFormTile
+                recipeContent = {this.state.recipe_name}
+                recipeLabel = 'Recipe Name:'
+                recipeName = 'recipe_name'
+                recipeHandlerFunction = {this.handleNameChange}
 
-          servingHandlerFunction = {this.handleTimeChange}
-          servingLabel = 'Serves:'
-          servingName = 'cook_time'
-          servingsOptions = {this.state.cookTimeCategories}
-          servingSelectedOption = {this.state.cook_time}
+                servingHandlerFunction = {this.handleTimeChange}
+                servingLabel = 'Serves:'
+                servingName = 'cook_time'
+                servingsOptions = {this.state.cookTimeCategories}
+                servingSelectedOption = {this.state.cook_time}
 
-          categoryHandlerFunction = {this.handleCategoryChange}
-          categoryLabel = 'Category:'
-          categoryName = 'category'
-          categoryOptions = {this.state.listedCategories}
-          categorySelectedOption = {this.state.category}
+                categoryHandlerFunction = {this.handleCategoryChange}
+                categoryLabel = 'Category:'
+                categoryName = 'category'
+                categoryOptions = {this.state.listedCategories}
+                categorySelectedOption = {this.state.category}
 
-          skillHandlerFunction = {this.handleSkillChange}
-          skillLabel = 'Skill Level:'
-          skillName = 'skill_level'
-          skillOptions = {this.state.skillCategories}
-          skillSelectedOption = {this.state.skill_level}
-        />
+                skillHandlerFunction = {this.handleSkillChange}
+                skillLabel = 'Skill Level:'
+                skillName = 'skill_level'
+                skillOptions = {this.state.skillCategories}
+                skillSelectedOption = {this.state.skill_level}
+              />
 
-        <h3>Ingredients</h3>
-        {confirmedIngredients}
-        <IngredientFormContainer
-          clear = {this.handleClearForm}
-          addIngredient = {this.addIngredient}
-        />
+              <div className="form-heading">Ingredients</div>
+              {confirmedIngredients}
+              <IngredientFormContainer
+                clear = {this.handleClearForm}
+                addIngredient = {this.addIngredient}
+              />
 
-        <h3 className="direction-heading">Directions</h3>
-        {confirmedInstructions}
-        <DirectionFormContainer
-          clear = {this.handleClearForm}
-					addInstruction = {this.addInstruction}
-        />
-        <input type="submit" className="recipe-button" value="Submit "/>
-	      </form>
+              <div className="direction-heading">Directions</div>
+              {confirmedInstructions}
+              <DirectionFormContainer
+                clear = {this.handleClearForm}
+      					addInstruction = {this.addInstruction}
+              />
+            </div>
+
+            <div className="buttonrow-form">
+              <button type="submit" className="btn-show">Submit</button>
+              <button><a className="btn-show" href='/recipes'> home</a></button>
+            </div>
+
+  	      </form>
+        </div>
+
+        <div className="footer"><img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img></div>
       </div >
     )
   }

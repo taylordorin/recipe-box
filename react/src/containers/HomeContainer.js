@@ -115,6 +115,7 @@ class HomeContainer extends Component {
             <div><Boxes /></div>
           </div>
           <div className="measurement-container">
+          <img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img>
             <div></div>
           </div>
           <div className="show-background">
@@ -124,7 +125,9 @@ class HomeContainer extends Component {
               delayInMs="16.66"
             />
           </div>
-          <div className="footer"></div>
+          <div className="footer">
+          <img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img>
+          </div>
       </div>
     )
   }

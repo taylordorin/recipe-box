@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text|Lora|Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway);
-
+$container-width: 750px;
+$container-height: 300px;
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
 $burnt-orange: #bc6225;
 $olive: #51534a;
 $cream: #EBE7DF;
@@ -19,6 +22,20 @@ $headlines: 'Crimson Text', serif;
   padding: 0;
   border-bottom: 20px solid $burnt-orange;
   border-top: 2px solid $olive;
+}
+a {
+  color: $cream;
+}
+a:hover {
+  color: $burnt-orange;
+}
+.welcome {
+  padding-left: 10%;
+  padding-top: 7px;
+  font-size: 1rem;
+  color: $cream;
+  text-align: left;
+  width: $container-height;
 }
 
 .logo-img {
@@ -42,7 +59,10 @@ $headlines: 'Crimson Text', serif;
 .measurement-container {
   background-color: $olive;
   margin: none;
-  padding-bottom: 36px;
+  padding: 20px 0;
+}
+.fork-knife-img {
+  width: 60px;
 }
 
 .buttonrow {

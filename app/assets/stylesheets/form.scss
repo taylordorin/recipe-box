@@ -1,0 +1,112 @@
+
+@import url(https://fonts.googleapis.com/css?family=Homemade+Apple|Meddon|Petit+Formal+Script|Playfair+Display|Raleway|Fredericka+the+Great);
+$container-width: 750px;
+$container-height: 300px;
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+$black: #1c2224;
+$blue: #37BECC;
+$dark-grey: #1c1c1c;
+$green: #84CE15;
+$grey: #777777;
+$light-blue: #E5F3F4;
+
+$burnt-orange: #bc6225;
+$olive: #51534a;
+$cream: #EBE7DF;
+
+$recipe-name: 'Fredericka the Great', cursive;
+$body: 'Raleway', sans-serif;
+$headlines: 'Crimson Text', serif;
+
+
+li {
+  font-family: $body;
+  text-decoration: none;
+  list-style: none;
+  font-size: 10pt;
+}
+
+.show-heading-2 {
+  color: $olive;
+  font-family: $recipe_name;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+}
+
+.backgroundform {
+  background-color: $olive
+}
+
+
+label {
+  color: #FE8B05;
+  font-family: $body;
+  text-align: left;
+}
+
+.form-complete {
+  font-family: $body;
+  color: #0a0a0a;
+  text-align: left;
+}
+
+.form-heading {
+  line-height: $base-line-height * 2;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-family: $headlines;
+  font-size: 2.3rem;
+  color: $olive;
+}
+.direction-heading {
+  line-height: $base-line-height * 2;
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-family: $headlines;
+  font-size: 2.3rem;
+  color: $olive;
+}
+
+.buttonrow-form {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.callout-box {
+  margin-top: 20px;
+  position: relative;
+  padding: 1rem;
+  border: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  // background-color: white;
+  color: #0a0a0a;
+  padding-top: 0;
+  padding-bottom: 3.5rem;
+  background: rgba(204, 204, 204, 0.9);
+}
+
+
+
+.form-button {
+  appearance: none;
+  background-color: $burnt-orange;
+  width: 10rem;
+  color: white;
+  border: none;
+  float: right;
+  height: 2rem;
+  font-size: 0.75rem;
+  font-family: $body;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bolder;
+}
+
+.form-button:hover {
+  background-color: $olive;
+}
