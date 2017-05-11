@@ -1,20 +1,22 @@
-<h2>Sign up</h2>
+<div class="bg-form">
+  <div class="row">
+    <div class="callout-form">
+      <div class="show-heading-2">Sign up</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :first_name, "First Name" %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.label :first_name, "First Name" %> <%= f.text_field :first_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.label :last_name, "Last Name" %>
     <%= f.text_field :last_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -22,12 +24,12 @@
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Password Confirmation" %><br />
+    <%= f.label :password_confirmation, "Password Confirmation" %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -36,4 +38,12 @@
   </div>
 <% end %>
 
+</div>
 <%= render "devise/shared/links" %>
+</div>
+
+<div class="footer">
+  <img class="fork-knife-img" src="<%= asset_path('fork-knife.png') %>" width="60" />
+</div>
+
+</div>

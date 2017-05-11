@@ -37,12 +37,22 @@ li {
 }
 
 .backgroundform {
-  background-color: $olive
+  background-color: $olive;
 }
 
 
+label {
+  color: #FE8B05;
+  font-family: $body;
+  text-align: left;
+}
+
 input {
   border: none;
+}
+
+.field {
+  margin-top: 10px;
 }
 
 .form-complete {

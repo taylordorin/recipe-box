@@ -1,10 +1,13 @@
-<h2>Resend confirmation instructions</h2>
+<div class="bg-form">
+  <div class="row">
+    <div class="callout-form">
+      <div class="show-heading-2">Resend confirmation instructions</div>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
@@ -13,4 +16,12 @@
   </div>
 <% end %>
 
+</div>
 <%= render "devise/shared/links" %>
+</div>
+
+<div class="footer">
+  <img class="fork-knife-img" src="<%= asset_path('fork-knife.png') %>" width="60" />
+</div>
+
+</div>
