@@ -41,10 +41,8 @@ li {
 }
 
 
-label {
-  color: #FE8B05;
-  font-family: $body;
-  text-align: left;
+input {
+  border: none;
 }
 
 .form-complete {
@@ -52,6 +50,7 @@ label {
   color: #0a0a0a;
   text-align: left;
 }
+
 
 .form-heading {
   line-height: $base-line-height * 2;

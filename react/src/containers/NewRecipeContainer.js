@@ -28,7 +28,7 @@ class NewRecipeContainer extends Component {
     this.handleSkillChange = this.handleSkillChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
 	  this.handleClearForm = this.handleClearForm.bind(this);
-	  this.handleFetch = this.handleFetch.bind(this);
+	  // this.handleFetch = this.handleFetch.bind(this);
 		this.addIngredient = this.addIngredient.bind(this);
 		this.addInstruction = this.addInstruction.bind(this);
 		this.handleGoBack = this.handleGoBack.bind(this);
@@ -37,10 +37,12 @@ class NewRecipeContainer extends Component {
 
     this.validateNameChange = this.validateNameChange.bind(this);
     this.validateCategoryChange = this.validateCategoryChange.bind(this);
+    this.validateIngredientPresence = this.validateIngredientPresence.bind(this);
+    this.validateInstructionPresence = this.validateInstructionPresence.bind(this);
   }
 
   handleNameChange(event) {
-    this.validateNameChange(event.target.value)
+    this.validateNameChange(event.target.value);
     let newName = event.target.value;
     this.setState({
       recipe_name: newName
@@ -110,6 +112,32 @@ class NewRecipeContainer extends Component {
     }
   }
 
+  validateIngredientPresence(ingredients) {
+    if (this.state.ingredients.length === 0) {
+      let newError = {ingredients: 'Ingredient field may not be blank.' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    }else{
+      let errorState = this.state.errors;
+      delete errorState.ingredients;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
+  validateInstructionPresence(instructions) {
+    if (this.state.instructions.length === 0) {
+      let newError = {instructions: 'Instructions field may not be blank.' };
+      this.setState({ errors: Object.assign(this.state.errors, newError) });
+      return false;
+    }else{
+      let errorState = this.state.errors;
+      delete errorState.instructions;
+      this.setState({ errors: errorState });
+      return true;
+    }
+  }
+
   handleClearForm(event) {
   event.preventDefault();
 	  this.setState({
@@ -133,7 +161,8 @@ class NewRecipeContainer extends Component {
     event.preventDefault();
     if (
       this.validateNameChange(this.state.recipe_name) &&
-      this.validateCategoryChange(this.state.category)
+      this.validateCategoryChange(this.state.category) &&
+      this.validateIngredientPresence(this.state.ingredients)
     ) {
       let requestBody = {
         recipe: {
@@ -145,26 +174,39 @@ class NewRecipeContainer extends Component {
         ingredient: this.state.ingredients,
         instruction: this.state.instructions
       };
-      this.handleFetch(requestBody);
+        fetch('/api/v1/recipes', {
+          credentials: "include",
+          method: "POST",
+          body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+          let parsed = response.json();
+          return parsed;
+        }).then(message => {
+          return message.id;
+        })
+        .then(id => {
+          this.handleGoBack(id);
+        });
+      }
     }
-  }
 
-  handleFetch(requestBody){
-  fetch('/api/v1/recipes', {
-    credentials: "include",
-    method: "POST",
-    body: JSON.stringify(requestBody)
-    })
-    .then(response => {
-      let parsed = response.json();
-      return parsed;
-    }).then(message => {
-      return message.id;
-    })
-    .then(id => {
-      this.handleGoBack(id);
-    });
-  }
+  // handleFetch(requestBody){
+  // //   fetch('/api/v1/recipes', {
+  // //     credentials: "include",
+  // //     method: "POST",
+  // //     body: JSON.stringify(requestBody)
+  // //   })
+  // //   .then(response => {
+  // //     let parsed = response.json();
+  // //     return parsed;
+  // //   }).then(message => {
+  // //     return message.id;
+  // //   })
+  // //   .then(id => {
+  // //     this.handleGoBack(id);
+  // //   });
+  // }
 
   handleDeleteIngredient(index){
     let newIngredients = this.state.ingredients;
@@ -188,17 +230,19 @@ class NewRecipeContainer extends Component {
     }
 
     let confirmedIngredients = this.state.ingredients.map((ingredient, index) => {
+      let boundDeleteIngredient = () => { this.handleDeleteIngredient(index) }
       return(
         <div key={index} className="form-complete">
-        <button className="btn-delete" onClick={(index) => this.handleDeleteIngredient(index)}>X</button>
+        <button className="btn-delete" onClick={boundDeleteIngredient}>X</button>
           {ingredient.quantity} {ingredient.unit} {ingredient.ingredient_name}
         </div>
     )
   })
 	  let confirmedInstructions = this.state.instructions.map((instruction, index) => {
+      let boundDeleteInstruction = () => { this.handleDeleteInstruction(index) }
 	    return(
 	      <div key={index} className="form-complete">
-        <button className="btn-delete" onClick={(index) => this.handleDeleteInstruction(index)}>X</button>
+        <button className="btn-delete" onClick={boundDeleteInstruction}>X</button>
 	        {instruction.step} {instruction.direction}
 	      </div>
 	    )
@@ -208,7 +252,7 @@ class NewRecipeContainer extends Component {
       return (
       <div className="backgroundform">
         <div className="row">
-          <form onSubmit={this.handleSubmit}  >
+          <form onSubmit={this.handleSubmit}>
             <div className = "callout-box">
               <div className="show-heading-2"> ADD YOUR RECIPE </div>
               {errorDiv}
@@ -253,7 +297,7 @@ class NewRecipeContainer extends Component {
             </div>
 
             <div className="buttonrow-form">
-              <button type="submit" className="btn-show">Submit</button>
+              <input type='submit' className="btn-show" value="Submit" />
               <button><a className="btn-show" href='/recipes'> home</a></button>
             </div>
 
