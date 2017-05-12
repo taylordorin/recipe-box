@@ -43,8 +43,9 @@ class RecipeShowContainer extends Component {
 
   getConfirmation() {
     let returnValue = confirm("Do you want to delete?");
-    if (returnValue === true) {
-      handleDelete();
+    console.log("return delete" + returnValue);
+    if (returnValue == true) {
+      this.handleDelete();
       return true;
     } else {
       return false;
