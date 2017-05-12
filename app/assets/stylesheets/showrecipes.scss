@@ -40,7 +40,7 @@ $headlines: 'Crimson Text', serif;
   color: #ffffff;
   font-family: $recipe_name;
   font-size: 3rem;
-  line-height: 1.6rem;
+  line-height: 2.6rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 6%;
@@ -53,7 +53,7 @@ $headlines: 'Crimson Text', serif;
   background-size: cover;
   margin: 0;
   padding: 0;
-  border-bottom: 10px solid $olive;
+  // border-bottom: 10px solid $olive;
   border-top: 2px solid $olive;
 }
 
@@ -292,4 +292,42 @@ a.btn-show{
   background-color: $olive;
   text-align: center;
   margin-top: 60px;
+  position:absolute;
+}
+.footer-main {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: $olive;
+  text-align: center;
+  margin-top: 60px;
+
+}
+
+
+.measurement-header {
+  font-family: $headlines;
+  text-transform: uppercase;
+  color: $burnt-orange;
+  font-size: 1.5rem;
+  // padding-top: 15px;
+}
+
+.measurement-header:hover {
+  color: $cream;
+  cursor: pointer;
+}
+
+.measurement-container-drop {
+  background-color: $olive;
+  margin: none;
+  padding: 15px 0;
+}
+
+.measurement-container-pic {
+  background-color: $olive;
+  margin: none;
+  padding: 20px 0;
+  width: 80%;
 }

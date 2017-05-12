@@ -4,15 +4,18 @@ import IngredientTile from '../components/IngredientTile';
 import InstructionTile from '../components/InstructionTile';
 import { browserHistory, Link } from 'react-router';
 import BackButton from '../components/BackButton';
+import MeasurementTile from '../components/MeasurementTile';
 
 class RecipeShowContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       recipe: {},
-      selectedInstructionId: null
+      selectedInstructionId: null,
+      showMeasurement: false
     };
     this.handleDataClick = this.handleDataClick.bind(this);
+    this.handleMeasurementClick = this.handleMeasurementClick.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +35,11 @@ class RecipeShowContainer extends Component {
     } else {
       this.setState({selectedInstructionId: id});
     }
+  }
+
+  handleMeasurementClick(event) {
+    event.preventDefault();
+    this.setState({ showMeasurement: !this.state.showMeasurement })
   }
 
   render() {
@@ -110,6 +118,11 @@ class RecipeShowContainer extends Component {
           </div>
         </div>
 
+        <div className="measurement-container-drop">
+        <div className='measurement-header' onClick={this.handleMeasurementClick}>measurement conversion chart</div>
+        {this.state.showMeasurement && < MeasurementTile / >}
+        </div>
+
         <div className="show-background">
 
           <div className="row">
@@ -119,17 +132,14 @@ class RecipeShowContainer extends Component {
                   <div className="ingredient-value">Ingredients</div>
                 </div>
               {ingredientsContainer}
-
           </div>
 
 
             <div className="large-8 columns">
-
                 <div className="direction-item">
                   <div className="direction-value">Directions</div>
                 </div>
                 {instructionsContainer}
-
             </div>
           </div>
 
@@ -140,15 +150,17 @@ class RecipeShowContainer extends Component {
             <button><a className="btn-show" href='/recipes'> home</a></button>
           </div>
 
-          <div className="footer">
-            <RecipeShow
-            id={this.state.recipe.recipe.id}
-            recipe_name={this.state.recipe.recipe.recipe_name}
-            category={this.state.recipe.recipe.category}
-            cook_time={this.state.recipe.recipe.cook_time}
-            skill_level={this.state.recipe.recipe.skill_level}
-            />
-          </div>
+
+
+        </div>
+        <div className="footer-main">
+        <RecipeShow
+        id={this.state.recipe.recipe.id}
+        recipe_name={this.state.recipe.recipe.recipe_name}
+        category={this.state.recipe.recipe.category}
+        cook_time={this.state.recipe.recipe.cook_time}
+        skill_level={this.state.recipe.recipe.skill_level}
+        />
         </div>
       </div>
     )
