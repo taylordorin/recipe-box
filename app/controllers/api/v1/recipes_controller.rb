@@ -27,8 +27,19 @@ class Api::V1::RecipesController < ApplicationController
   end
 
   def destroy
+    puts "starting destroy"
     recipe = Recipe.find(params[:id])
+    ingredients = Ingredient.where(recipe_id: recipe.id)
+    ingredients.each do |ingredient|
+      ingredient.destroy
+    end
+    instructions = Instruction.where(recipe_id: recipe.id)
+    instructions.each do |instruction|
+      instruction.destroy
+    end
+    puts recipe
     recipe.destroy
+    puts "ending destroy"
   end
 
   def create

@@ -16,6 +16,8 @@ class RecipeShowContainer extends Component {
     };
     this.handleDataClick = this.handleDataClick.bind(this);
     this.handleMeasurementClick = this.handleMeasurementClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.getConfirmation = this.getConfirmation.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +30,27 @@ class RecipeShowContainer extends Component {
       this.setState({ recipe: parsed});
     });
   }
+
+  handleDelete() {
+    let recipeId = this.props.params.id;
+    console.log("starting delete");
+    fetch(`/api/v1/recipes/${recipeId}`, {
+      credentials: "include",
+      method: "DELETE"
+    });
+    console.log("finish delete");
+  }
+
+  getConfirmation() {
+    let returnValue = confirm("Do you want to delete?");
+    if (returnValue === true) {
+      handleDelete();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
   handleDataClick(id) {
     if (this.state.selectedInstructionId === id){
@@ -148,6 +171,7 @@ class RecipeShowContainer extends Component {
           <div className="buttonrow-show">
             <button><a className="btn-show" href='/recipes/new'> add a recipe</a></button>
             <button><a className="btn-show" href='/recipes'> home</a></button>
+            <button><a onClick={this.getConfirmation} className="btn-show" href='/recipes'> delete </a></button>
           </div>
 
 
