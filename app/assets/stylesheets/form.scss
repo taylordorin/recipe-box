@@ -37,7 +37,12 @@ li {
 }
 
 .backgroundform {
-  background-color: $olive
+  background-color: $olive;
+  height: 100vh;
+}
+.backgroundform1 {
+  background-color: $olive;
+
 }
 
 
@@ -47,11 +52,20 @@ label {
   text-align: left;
 }
 
+input {
+  border: none;
+}
+
+.field {
+  margin-top: 10px;
+}
+
 .form-complete {
   font-family: $body;
   color: #0a0a0a;
   text-align: left;
 }
+
 
 .form-heading {
   line-height: $base-line-height * 2;

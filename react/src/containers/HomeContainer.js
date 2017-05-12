@@ -125,7 +125,7 @@ class HomeContainer extends Component {
               delayInMs="16.66"
             />
           </div>
-          <div className="footer">
+          <div className="footer-main">
           <img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img>
           </div>
       </div>

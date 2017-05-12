@@ -1,4 +1,7 @@
-<h2>Change your password</h2>
+<div class="bg-form">
+  <div class="row">
+    <div class="callout-form">
+      <div class="show-heading-2">Change your password</div>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -7,13 +10,13 @@
   <div class="field">
     <%= f.label :password, "New password" %><br />
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <%= f.label :password_confirmation, "Confirm new password" %>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -21,5 +24,13 @@
     <%= f.submit "Change my password" %>
   </div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
+</div>
+
+<div class="footer">
+  <img class="fork-knife-img" src="<%= asset_path('fork-knife.png') %>" width="60" />
+</div>
+
+</div>
