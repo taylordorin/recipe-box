@@ -1,7 +1,7 @@
 class Api::V1::RecipesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    category_array = ['Breakfast', 'Lunch', 'Appetizers', 'Soups', 'Salads', 'Beef', 
+    category_array = ['Breakfast', 'Lunch', 'Appetizers', 'Soups', 'Salads', 'Beef',
                         'Chicken', 'Pork', 'Seafood', 'Vegetables', 'Desserts', 'Other']
     output = {}
     category_array.each do |category|
@@ -43,13 +43,18 @@ class Api::V1::RecipesController < ApplicationController
       return
     end
     ingredientArray = (parsed["ingredient"])
-    ingredientArray.each do |ingredient|
-      new_ingredient = Ingredient.new(ingredient)
-      new_ingredient.recipe = recipe
-      ingredient_saved = new_ingredient.save
-      if !ingredient_saved
-         render json: { message: recipe.errors.full_messages }
-         return
+    if ingredientArray.empty?
+      render json: { message: "Please enter an ingredient." }
+      return
+    else
+      ingredientArray.each do |ingredient|
+        new_ingredient = Ingredient.new(ingredient)
+        new_ingredient.recipe = recipe
+        ingredient_saved = new_ingredient.save
+        if !ingredient_saved
+           render json: { message: recipe.errors.full_messages }
+           return
+        end
       end
     end
     instructionArray = (parsed["instruction"])

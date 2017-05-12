@@ -37,6 +37,7 @@
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0",
     "react-scrollable-anchor": "^0.4.2",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }
