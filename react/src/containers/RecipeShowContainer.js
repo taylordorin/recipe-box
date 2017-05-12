@@ -43,14 +43,14 @@ class RecipeShowContainer extends Component {
 
   getConfirmation() {
     let returnValue = confirm("Do you want to delete?");
-    if (returnValue === true) {
-      handleDelete();
+    console.log("return delete" + returnValue);
+    if (returnValue == true) {
+      this.handleDelete();
       return true;
     } else {
       return false;
     }
   }
-
 
   handleDataClick(id) {
     if (this.state.selectedInstructionId === id){
@@ -166,15 +166,11 @@ class RecipeShowContainer extends Component {
             </div>
           </div>
 
-
-
           <div className="buttonrow-show">
             <button><a className="btn-show" href='/recipes/new'> add a recipe</a></button>
             <button><a className="btn-show" href='/recipes'> home</a></button>
             <button><a onClick={this.getConfirmation} className="btn-show" href='/recipes'> delete </a></button>
           </div>
-
-
 
         </div>
         <div className="footer-main">
