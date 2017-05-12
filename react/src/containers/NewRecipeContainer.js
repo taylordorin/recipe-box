@@ -250,7 +250,7 @@ class NewRecipeContainer extends Component {
 
 
       return (
-      <div className="backgroundform">
+      <div className="backgroundform1">
         <div className="row">
           <form onSubmit={this.handleSubmit}>
             <div className = "callout-box">
@@ -304,7 +304,7 @@ class NewRecipeContainer extends Component {
   	      </form>
         </div>
 
-        <div className="footer"><img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img></div>
+        <div className="footer-main"><img className="fork-knife-img" src={assetHelper["fork-knife.png"]}></img></div>
       </div >
     )
   }
