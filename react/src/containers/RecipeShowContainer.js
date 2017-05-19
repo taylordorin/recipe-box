@@ -22,7 +22,9 @@ class RecipeShowContainer extends Component {
 
   componentDidMount() {
     let recipeId = this.props.params.id;
-    fetch(`/api/v1/recipes/${recipeId}`)
+    fetch(`/api/v1/recipes/${recipeId}`, {
+      credentials: "include"
+    })
     .then(response => {
       let parsed = response.json();
       return parsed;
