@@ -97,7 +97,7 @@ class HomeContainer extends Component {
           </div>
 
           <div className="buttonrow">
-            <button><a className="btn-main" href='/recipes/new'> add your recipe</a></button>
+            <button><a className="btn-main" href='/recipes/new'> add a recipe</a></button>
             <button className="btn-main" onClick={this.handleRandomClick}>Random</button>
           </div>
 

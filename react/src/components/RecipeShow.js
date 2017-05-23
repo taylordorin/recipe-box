@@ -4,7 +4,7 @@ import { browserHistory, Link } from 'react-router';
 const RecipeShow = (props) => {
   const divStyle = {
       borderRight: '1pt solid grey',
-      width: '129px'
+      width: '120px'
     };
   const divStyle2 = {
       borderRight: '1px solid grey',
