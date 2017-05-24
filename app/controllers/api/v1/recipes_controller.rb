@@ -17,11 +17,11 @@ class Api::V1::RecipesController < ApplicationController
 
   def show
     recipe = Recipe.find(params[:id])
-    if (current_user.nil?) || (recipe.nil?) || (recipe.user.nil?) || (recipe.user.id.nil?)
-      render json: { message: "Prerequisites not met"}
-      return
-    end
-    if recipe.user.id != current_user.id
+    # if (current_user.nil?) || (recipe.nil?) || (recipe.user.nil?) || (recipe.user.id.nil?)
+    #   render json: { message: "Prerequisites not met"}
+    #   return
+    # end
+    if recipe&.user&.id != current_user&.id
       render json: { message: "User does not match recipe." }
       return
     end
