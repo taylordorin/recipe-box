@@ -1,6 +1,14 @@
-<div class="bg-form">
+<div class="login-image">
+  <div class="login-logo-img">
+    <%= image_tag("logo.png") %>
+  </div>
+  <div class="landing-intro"> Need a place to store and retreive your favorite recipes? </br>
+At a loss for what to cook for dinner?</br>
+The Dirty Apron can help, sign up and start building your recipe box!</div>
+</div>
+<div class="login-form-bg">
   <div class="row">
-    <div class="callout-form">
+    <div class="callout-signin-form">
       <div class="show-heading-2">Sign in</div>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,8 +36,9 @@
     </div>
 
 
-
-    <%= render "devise/shared/links" %>
+    <div class="link">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 
   <div class="footer">

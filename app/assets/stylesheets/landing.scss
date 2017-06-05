@@ -26,6 +26,14 @@ $headlines: 'Crimson Text', serif;
 a {
   color: $cream;
 }
+.link a {
+  color: $burnt-orange;
+}
+
+.link a:hover {
+  color: $olive;
+}
+
 a:hover {
   color: $burnt-orange;
 }

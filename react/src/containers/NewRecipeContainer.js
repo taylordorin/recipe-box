@@ -162,7 +162,8 @@ class NewRecipeContainer extends Component {
     if (
       this.validateNameChange(this.state.recipe_name) &&
       this.validateCategoryChange(this.state.category) &&
-      this.validateIngredientPresence(this.state.ingredients)
+      this.validateIngredientPresence(this.state.ingredients) &&
+      this.validateInstructionPresence(this.state.instructions)
     ) {
       let requestBody = {
         recipe: {
@@ -190,23 +191,6 @@ class NewRecipeContainer extends Component {
         });
       }
     }
-
-  // handleFetch(requestBody){
-  // //   fetch('/api/v1/recipes', {
-  // //     credentials: "include",
-  // //     method: "POST",
-  // //     body: JSON.stringify(requestBody)
-  // //   })
-  // //   .then(response => {
-  // //     let parsed = response.json();
-  // //     return parsed;
-  // //   }).then(message => {
-  // //     return message.id;
-  // //   })
-  // //   .then(id => {
-  // //     this.handleGoBack(id);
-  // //   });
-  // }
 
   handleDeleteIngredient(index){
     let newIngredients = this.state.ingredients;
