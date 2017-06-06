@@ -79,6 +79,14 @@ label {
   text-align: left;
 }
 
+
+.password {
+  font-size: 0.875rem;
+  color: $dark-grey;
+  font-family: $body;
+  text-align: center;
+}
+
 input {
   border: none;
 }

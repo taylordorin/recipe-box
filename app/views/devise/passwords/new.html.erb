@@ -1,6 +1,6 @@
-<div class="bg-form">
+<div class="login-form-bg">
   <div class="row">
-    <div class="callout-form">
+    <div class="callout-signin-form">
       <div class="show-heading-2">Forgot your password?</div>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -17,7 +17,9 @@
       <% end %>
     </div>
 
-  <%= render "devise/shared/links" %>
+    <div class="link">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
 
   <div class="footer">

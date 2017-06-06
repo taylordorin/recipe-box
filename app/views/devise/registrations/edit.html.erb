@@ -42,10 +42,13 @@
 <div class="show-heading-3">Unhappy?</div>
 <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
 </div>
-<%= link_to "Back", :back %>
+
+  <div class="link">
+    <%= link_to "Back", :back %>
+  </div>
 </div>
 
-<div class="footer">
+<div class="footer-main">
   <img class="fork-knife-img" src="<%= asset_path('fork-knife.png') %>" width="60" />
 </div>
 
