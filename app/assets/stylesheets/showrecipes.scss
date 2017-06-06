@@ -284,10 +284,18 @@ a.btn-show{
   border: 1px solid #ffffff;
 }
 
+// .login-form-bg {
+//   min-height: 100%;
+//   position: relative;
+// }
+
 .footer {
-  right: 0;
+  position:fixed;
+  height: 95px;
+  width: 100%;
+  // right: 0;
   bottom: 0;
-  left: 0;
+  // left: 0;
   padding: 1rem;
   background-color: $olive;
   text-align: center;
@@ -301,7 +309,6 @@ a.btn-show{
   background-color: $olive;
   text-align: center;
   margin-top: 60px;
-
 }
 
 

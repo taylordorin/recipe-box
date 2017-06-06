@@ -1,6 +1,6 @@
 <div class="bg-form">
   <div class="row">
-    <div class="callout-form">
+    <div class="callout-signin-form">
       <div class="show-heading-2">Sign up</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -23,7 +23,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <div class="password"><em>(<%= @minimum_password_length %> characters minimum)</em></div>
     <% end %>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
@@ -39,10 +39,12 @@
 <% end %>
 
 </div>
+<div class="link">
 <%= render "devise/shared/links" %>
 </div>
+</div>
 
-<div class="footer">
+<div class="footer-main">
   <img class="fork-knife-img" src="<%= asset_path('fork-knife.png') %>" width="60" />
 </div>
 

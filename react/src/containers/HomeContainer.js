@@ -87,8 +87,7 @@ class HomeContainer extends Component {
       recipesContainer = recipesContainer.concat(tiles)
       }
     }
-    // console.log("printing recipesContainer")
-    // console.log(recipesContainer)
+
     return(
       <div>
         <div className="backgroundimage">
